@@ -1,0 +1,445 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRMSU College of Engineering</title>
+    <link rel="stylesheet" href="Css-file.css">
+    <style>
+        .animate-on-scroll img, .animate-on-scroll p {
+            transition: transform 0.5s ease;
+        }
+        .animate-on-scroll img:hover, .animate-on-scroll p:hover {
+            transform: scale(1.1);
+        }
+
+        .carousel{
+            width: 100%;
+        }
+        
+        .navbar {
+            position: sticky;
+            top: 0; /* Stick to the top of the viewport */
+            z-index: 1000; /* Ensure it stays above other elements */
+            background-color: rgb(0, 0, 0); /* Optional: Add a background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+        }
+        .search-container {
+            position: relative;
+        
+            right: 30px;
+        }
+
+        /* Mobile Layout Adjustments */
+        @media (max-width: 768px) {
+
+            .section .three-columns {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+    width: 100%; /* Full width to prevent shrinking */
+    padding: 10px; /* Add spacing to avoid overlapping */
+    box-sizing: border-box; /* Ensure padding is accounted for in width */
+}
+
+.section .three-columns h3 {
+    font-size: 17px; /* Base font size */
+    line-height: 1.5; /* Spacing between lines */
+    margin: 10px 0; /* Space around the heading */
+    text-align: center; /* Center align text */
+    word-wrap: break-word; /* Break long words */
+    max-width: 90%; /* Prevent text from overflowing */
+}
+
+.animate-on-scroll.show {
+    display: flex; /* Flex container */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text within its container */
+    width: 100%; /* Full width */
+}
+
+.animate-on-scroll.show img {
+    display: block; /* Ensure the image behaves as a block element */
+    margin: 0 auto; /* Center image */
+    max-width: 100%; /* Prevent overflow on smaller screens */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.animate-on-scroll.show p {
+    margin: 10px 0; /* Space around the text */
+    text-align: center; /* Center the text */
+    font-size: 16px; /* Adjust font size */
+    line-height: 1.5; /* Improve text readability */
+}
+
+
+            .banner {
+                display: flex;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .navbar-left, .navbar-right {
+                text-align: center;
+            }
+
+            .navbar-left h1{
+                font-size: 4vw;
+            }
+            .section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .three-columns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .carousel {
+                width: 100%; /* Keep full width */
+                max-width: none; /* Remove max-width restriction */
+                padding: 0; /* Add padding if necessary */
+            }
+
+            .carousel img {
+                width: 100%; /* Make images in the carousel take full width */
+                height: 160px; /* Maintain aspect ratio */
+        
+            }
+
+            .animate-on-scroll.show img{
+                align-items: center;
+        
+            }
+             
+
+            .three-columns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .news-item {
+                width: 90%;
+                margin: 10px 0;
+                text-align: center;
+            }
+            .footer {
+                text-align: center;
+            }
+            .navbar-left a {
+                display: flex;
+                justify-content: center; 
+                align-items: center;    
+                text-decoration: none;  
+
+            }
+        } 
+
+        .footer {
+            background-color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 2px solid #ff6f3c;
+        }
+        .footer h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        .footer h1 span {
+            color: #ff6f3c;
+        }
+        .footer .content {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .footer .content div {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .footer .content div h2 {
+            font-size: 20px;
+            color: #333;
+        }
+        .footer .content div p, .footer .content div a {
+            font-size: 16px;
+            color: #666;
+            text-decoration: none;
+        }
+        .footer .content div a {
+            color: #ff6f3c;
+        }
+        .footer-bottom {
+            background-image: url('footer.jfif'); /* Replace with your image URL */
+            background-size: cover;
+            color: #fff;
+            padding: 25px 0;
+            margin-top: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .footer-bottom::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 1;
+        }
+        .footer-bottom p {
+            font-size: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .navbar-left a {
+            display: flex;
+            justify-content: center; 
+            align-items: center;    
+            text-decoration: none;  
+
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+    <div class="navbar-left">
+    <a href="index.html">
+        <img src="logo.png" alt="PRMSU Logo" id="logo">
+    </a>
+        <h1>PRMSU College of Engineering</h1>    
+        <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+    </div>
+    <div class="navbar-right">
+        <a href="index.html" id="home-link">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Instructions +</button>
+            <div class="dropdown-content">
+                <a href="curricular-offerings.html">Curricular Offerings</a>
+                <a href="faculty.html">Faculty</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="window.location.href='research.html'">Research +</button>
+            <div class="dropdown-content">
+                <a href="bsce-research.html">BSCE Research</a>
+                <a href="bscpe-research.html">BSCpE Research</a>
+                <a href="bsee-research.html">BSEE Research</a>
+                <a href="bsme-research.html">BSME Research</a>
+            </div>
+        </div>
+        <a href="Extension.html">Extension</a>
+        <a href="History.html">History</a>
+        
+        <!-- Search Bar Section -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                placeholder="Search..." 
+                class="search-bar" 
+                oninput="showResults(this.value)"
+            >
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .search-container {
+        position: relative;
+        display: flex;
+        flex-grow: 1; /* Allow the search container to use available space */
+        margin: 0; /* Remove any default margin */
+    }
+
+    .search-bar {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        width: 65%; /* Fill the container's width */
+        max-width: 600px; /* Prevents it from being too wide */
+        margin-right: auto; /* Removes space on the right */
+        margin-left: auto; /* Centers the search bar */
+    }
+
+    .search-results {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-height: 150px;
+        overflow-y: auto;
+        width: 100%; /* Matches the search bar's width */
+        z-index: 1000;
+    }
+
+    .search-results p {
+        margin: 0;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    .search-results p:hover {
+        background-color: #f0f0f0;
+    }
+</style>
+
+
+
+<script>
+    const searchItems = [
+        { name: "Home", link: "index.html" },
+        { name: "Curricular Offerings", link: "curricular-offerings.html" },
+        { name: "Faculty", link: "faculty.html" },
+        { name: "Research", link: "research.html" },
+        { name: "BSCE Research", link: "bsce-research.html" },
+        { name: "BSCpE Research", link: "bscpe-research.html" },
+        { name: "BSEE Research", link: "bsee-research.html" },
+        { name: "BSME Research", link: "bsme-research.html" },
+        { name: "Extension", link: "Extension.html" },
+        { name: "History", link: "History.html" }
+    ];
+
+    function showResults(value) {
+        const results = document.getElementById('search-results');
+        results.innerHTML = '';
+        if (value) {
+            const filteredItems = searchItems.filter(item =>
+                item.name.toLowerCase().includes(value.toLowerCase())
+            );
+            if (filteredItems.length > 0) {
+                filteredItems.forEach(item => {
+                    const p = document.createElement('p');
+                    p.textContent = item.name;
+                    p.onclick = () => {
+                        window.location.href = item.link;
+                    };
+                    results.appendChild(p);
+                });
+                results.style.display = 'block';
+            } else {
+                results.style.display = 'none';
+            }
+        } else {
+            results.style.display = 'none';
+        }
+    }
+</script>
+    </div>
+</div>
+
+    <!-- Banner Section -->
+    <div class="banner" style="background-image: url('coe_blg.png');"></div>
+
+    <!-- Vision, Mission, Quality Policy Section -->
+    <div class="section three-columns">
+        <div class="animate-on-scroll column">
+            <h2><span class="gradient-text">Vision</span></h2>
+            <p>PRMSU as a premier learner center and proactive university in a global society.</p>
+        </div>
+        <div class="animate-on-scroll column">
+            <h2><span class="gradient-text">Mission</span></h2>
+            <p>The President Ramon Magsaysay State University shall primarily provide advance and higher professional, technical, special instructions in various disciplines; undertake research, extension, and income generation programs for sustainable development of Zambales, the region, and the country. </p>
+        </div>
+        <div class="animate-on-scroll column">
+            <h2><span class="gradient-text">Quality Policy</span></h2>
+            <p>The President Ramon Magsaysay State University is committed to continually strive for excellence in instruction, research, extension and production to strengthen global competitiveness adhering to quality standards for the utmost satisfaction of its valued customers.</p>
+        </div>
+    </div>
+
+    <!-- Carousel Section -->
+    <section class="carousel">
+        <div class="slider">
+            <div class="list">
+                <div class="item"><img src="slide1.png" alt="Slide 1"></div>
+                <div class="item"><img src="slide2.png" alt="Slide 2"></div>
+                <div class="item"><img src="slide3.png" alt="Slide 3"></div>
+                <div class="item"><img src="slide4.png" alt="Slide 4"></div>
+                <div class="item"><img src="slide5.png" alt="Slide 5"></div>
+                <div class="item"><img src="slide6.png" alt="Slide 6"></div>
+                <div class="item"><img src="slide7.png" alt="Slide 7"></div>
+                <div class="item"><img src="slide8.png" alt="Slide 8"></div>
+            </div>
+            <div class="buttons">
+                <button id="prev"><</button>
+                <button id="next">></button>
+            </div>
+            <ul class="dots">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- News or Announcements Section -->
+    <div class="section">
+        <h2 style=" color: #833108;"> Latest News</h2>
+        <div class="three-columns">
+            <div class="animate-on-scroll news-item">
+                <h3>BSME Department awards and demonstrates the Fish Crushing Machine to Laoag Kaunlaran Association</h3>
+                <img src="machine_demo.png" alt="Machine Demonstration Event">
+                <p>"The BSME Department awards and demonstrates the Fish Crushing Machine to Laoag Kaunlaran Association -
+                    Cooperative through the Regional Innovation Inclusive Cooperation Program between DTI, DOST, PRMSU and 
+                    MSMED Council on the 14th of October 2022. This is a realization of the objectives of TEAM-UP EXTENSION 
+                    PROGRAM parallel with the THRIVE agenda of the college with the goal, "A single step from COE, a hundred 
+                    mouths fed in the community through upscaling and upgrading livelihood activities of small and medium 
+                    enterprises in the Province of Zambales".</p>
+            </div>
+            <div class="animate-on-scroll news-item">
+                <h3>BSME Department awards and demonstrates the Fish Crushing Machine to Laoag Kaunlaran Association</h3>
+                <img src="exam.png" alt="Exam Event">
+                <p>"The PRMSU College of Engineering conducted the 2nd Batch of Orientation and Gender and Development (GAD) / 
+                    Gender Sensitivity Training (GST) Seminar for Freshmen at the Science and Engineering Laboratory Building 
+                    (SELB) Annex on October 20, 2022 with speakers Engr. Rue Lei Balicaco and Engr. Cindy Dullas."</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h1>PRMSU <span>College of Engineering</span></h1>
+        <div class="content">
+            <div>
+                <h2>Address</h2>
+                <p>Zone 6 Baytan,<br>Palanginan, Iba,<br>Zambales, Philippines</p>
+            </div>
+            <div>
+                <h2>Social Media</h2>
+                <p>
+                    <a href="https://www.facebook.com/prmsucoe">
+                        Facebook Page
+                    </a>
+                </p>
+                <p>
+                    <a href="https://www.facebook.com/THECOEFFICIENTSPRMSU">
+                        The COEfficients
+                    </a>
+                </p>
+            </div>
+            <div>
+                <h2>Contact Us</h2>
+                <p>online.coe@prmsu.edu.ph</p>
+                <p>(+63) 919 069 9177</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>PRMSU College of Engineering © 2024 All rights reserved</p>
+    </div>
+
+    <script src="Java-Script.js"></script>
+</body>
+</html>

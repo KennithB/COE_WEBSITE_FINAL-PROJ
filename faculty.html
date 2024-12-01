@@ -1,0 +1,869 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty - PRMSU College of Engineering</title>
+    <link rel="stylesheet" href="Css-file.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #E5E5E5;
+        }
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #FF6347, #ff4400ba);
+            color: white;
+            padding: 50px 0;
+        }
+        .section .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section .image-container img {
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .section .image-container img:hover {
+            transform: scale(1.1);
+        }
+        .section .text-container {
+            flex: 2;
+            padding: 20px;
+        }
+        .section .text-container h1 {
+            font-size: 48px;
+            color: #F5F5F5;
+            margin: 0;
+        }
+        .section .text-container h2 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .section .text-container p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .section .text-container a {
+            color: #F5F5F5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .program-chairs-title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #c3450f;
+        }
+        .program-chairs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #fff;
+            padding: 20px;
+        }
+        .program-chair {
+            background: linear-gradient(to right, #f4f3f2, #fefaf9b7);
+            color: rgb(14, 14, 14);
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            width: 600px;
+            text-align: center;
+        }
+        .program-chair img {
+            border-radius: 50%;
+            width: 160;
+            height: 160px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            transition: transform 0.5s ease;
+        }
+        .program-chair img:hover {
+            transform: scale(1.3);
+        }
+        .program-chair h3 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .program-chair p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .faculty-section {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin: 20px;
+        }
+        .faculty-buttons {
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+        }
+
+    .faculty-buttons button {
+        background: linear-gradient(to right, #df4119cb, #ff8000d2);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px 0;
+        font-size: 18px;
+        font-family: 'Times New Roman', Times, serif;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Hover effect */
+    .faculty-buttons button:hover {
+        background-color: #681c05;
+    }
+
+    
+    .faculty-buttons button:focus {
+        background-color: #681c05;
+        outline: none; 
+        box-shadow: 0 0 5px 2px rgb(66, 36, 2); 
+    }
+
+        .faculty-members {
+            display: none;
+            flex-wrap: wrap;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .faculty-member {
+            background: linear-gradient(to right, #FF6347, #ff4400ba);
+            color: white;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .faculty-member img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            transition: transform 0.5s ease;
+        }
+        .faculty-member img:hover {
+            transform: scale(1.5);
+        }
+        .faculty-title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #c3450f;
+        }
+        .footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        @media (max-width: 768px) {
+
+.section {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    background: linear-gradient(to right, #FF6347, #ff4400ba);
+    color: white;
+    padding: 50px 0;
+}
+
+.section .text-container h1{
+    font-size: 28px;
+}
+
+.section .image-container {
+    text-align: center; /* Centers the image */
+    margin-bottom: 20px; /* Space between image and paragraph */
+}
+
+.section .image-container img {
+    border-radius: 50%; /* Circular image */
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.section .text-container {
+    flex: 2;
+    padding: 20px;
+    text-align: center; /* Centers the text inside the paragraph */
+}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <!-- Left section: Logo and Title -->
+        <div class="navbar-left">
+        <a href="index.html">
+            <img src="logo.png" alt="PRMSU Logo" id="logo">
+        </a>
+            <h1>PRMSU College of Engineering</h1>
+            <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+        </div>
+
+        <!-- Right section: Navigation Links and Search Bar -->
+        <div class="navbar-right">
+            <a href="index.html" id="home-link">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Instruction</button>
+                <div class="dropdown-content">
+                    <a href="curricular-offerings.html">Curricular Offerings</a>
+                    <a href="faculty.html">Faculty</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='research.html'">Research +</button>
+                <div class="dropdown-content">
+                    <a href="bsce-research.html">BSCE Research</a>
+                    <a href="bscpe-research.html">BSCpE Research</a>
+                    <a href="bsee-research.html">BSEE Research</a>
+                    <a href="bsme-research.html">BSME Research</a>
+                </div>
+            </div>
+            <a href="Extension.html">Extension</a>
+            <a href="History.html">History</a>
+            <!-- Search Bar Section -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                placeholder="Search..." 
+                class="search-bar" 
+                oninput="showResults(this.value)"
+            >
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .search-container {
+        position: relative;
+        display: flex;
+        flex-grow: 1; /* Allow the search container to use available space */
+        margin: 0; /* Remove any default margin */
+    }
+
+    .search-bar {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        width: 65%; /* Fill the container's width */
+        max-width: 600px; /* Prevents it from being too wide */
+        margin-right: auto; /* Removes space on the right */
+        margin-left: auto; /* Centers the search bar */
+    }
+
+    .search-results {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-height: 150px;
+        overflow-y: auto;
+        width: 100%; /* Matches the search bar's width */
+        z-index: 1000;
+    }
+
+    .search-results p {
+        margin: 0;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    .search-results p:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Mobile layout styles */
+    @media (max-width: 768px) {
+
+
+
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+                position: relative;
+            }
+            .navbar-left {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                position: relative;
+            }
+            .navbar-left #logo {
+                margin-right: 10px;
+            }
+            .navbar-toggle {
+                display: inline-block;
+                cursor: pointer;
+                font-size: 1.8rem;
+                color: #ea7210;
+                background: none;
+                border: none;
+                position: absolute;
+                right: 50px; /* Adjust this value to move it left */
+                top: 50%; /* Vertically center it */
+                transform: translateY(-50%);
+            }
+            .navbar-right {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin-top: 10px;
+            }
+            .navbar.active .navbar-right {
+                display: flex;
+            }
+        }
+
+        /* Desktop layout styles */
+        @media (min-width: 769px) {
+            .navbar-toggle {
+                display: none; /* Hide hamburger icon on larger screens */
+            }
+            .navbar-right {
+                display: flex; /* Menu items are visible on larger screens */
+                flex-direction: row;
+                gap: 15px;
+            }
+        }
+
+
+        /* Mobile layout styles */
+        @media (max-width: 768px) {
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 15px;
+                position: relative;
+            }
+            .navbar-left {
+                display: flex;
+                align-items: center;
+            }
+            .navbar-left #logo {
+                margin-right: 10px;
+            }
+
+            /* Hamburger toggle button */
+            .navbar-toggle {
+                display: inline-block;
+                font-size: 1.8rem;
+                color: #ea7210;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* Dropdown menu */
+            .navbar-right {
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 60px; /* Position dropdown below navbar */
+                right: 15px; 
+                width: 200px; 
+                background-color: #fff; /* White background */
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for floating effect */
+                z-index: 1000;
+                animation: dropdown-slide 0.3s ease-out; /* Add slide animation */
+            }
+
+            .navbar.active .navbar-right {
+                display: flex; /* Show dropdown when active */
+            }
+
+            /* Buttons inside the dropdown */
+            .navbar-right a {
+                display: block;
+                text-decoration: none;
+                color: #8c3206;
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #f5f5f5; /* Light gray background */
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            /* Hover effect for dropdown buttons */
+            .navbar-right a:hover {
+                background-color: #df4119cb; /* Consistent orange gradient */
+                color: #fff; /* White text on hover */
+                transform: scale(1.05); /* Slight zoom effect */
+            }
+
+            /* Dropdown animation */
+            @keyframes dropdown-slide {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            /* Uniform button styles for all links */
+            .navbar-right a, .navbar-right .dropbtn {
+                display: block;
+                text-decoration: none;
+                color: #843208;
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #f5f5f5; /* Light gray background */
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            /* Hover effect for all buttons */
+            .navbar-right a:hover, .navbar-right .dropbtn:hover {
+                background-color: #df4119cb; /* Consistent orange gradient */
+                color: #fff; /* White text on hover */
+                transform: scale(1.05); /* Slight zoom effect */
+            }
+        }  
+</style>
+
+<script>
+    function toggleNavbar() {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+
+        
+    }
+</script>
+<script>
+    const searchItems = [
+        { name: "Home", link: "HOME.html" },
+        { name: "Curricular Offerings", link: "curricular-offerings.html" },
+        { name: "Faculty", link: "faculty.html" },
+        { name: "Research", link: "research.html" },
+        { name: "BSCE Research", link: "bsce-research.html" },
+        { name: "BSCpE Research", link: "bscpe-research.html" },
+        { name: "BSEE Research", link: "bsee-research.html" },
+        { name: "BSME Research", link: "bsme-research.html" },
+        { name: "Extension", link: "Extension.html" },
+        { name: "History", link: "History.html" }
+    ];
+
+    function showResults(value) {
+        const results = document.getElementById('search-results');
+        results.innerHTML = '';
+        if (value) {
+            const filteredItems = searchItems.filter(item =>
+                item.name.toLowerCase().includes(value.toLowerCase())
+            );
+            if (filteredItems.length > 0) {
+                filteredItems.forEach(item => {
+                    const p = document.createElement('p');
+                    p.textContent = item.name;
+                    p.onclick = () => {
+                        window.location.href = item.link;
+                    };
+                    results.appendChild(p);
+                });
+                results.style.display = 'block';
+            } else {
+                results.style.display = 'none';
+            }
+        } else {
+            results.style.display = 'none';
+        }
+    }
+</script>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="section">
+        <div class="image-container">
+            <img src="Chair/DEBOMA.jpg">
+        </div>
+        <div class="text-container">
+            <h1>GILBERT D. DEBOMA, REE, M.Eng.</h1>
+            <h2>College Dean</h2>
+            <p>Engr Gilbert D. Deboma is a faculty of the College of Engineering for 24 years with an Academic Rank of 
+                Associate Professor V. He is a graduate of Bachelor of Science in Electrical Engineering at Technological 
+                Institute of the Philippines – Quezon City. He finished his Master of Science in Electronics Engineering at 
+                Andong National University – South Korea. He is currently taking up PhD in Agricultural Engineering at Central 
+                Luzon State University. Engr Deboma is an active member of the Institute of Integrated Electrical Engineers, 
+                Inc., the accredited professional organization of electrical practitioners of the Philippines. He is the current 
+                dean of the College of Engineering and concurrent Program Chairperson of the Electrical Engineering Department.</p>
+        </div>
+    </div>
+
+    <!-- Program Chairs Title -->
+    <div class="program-chairs-title">
+        Program Chairpersons
+    </div>
+
+    <!-- Program Chairs -->
+    <div class="program-chairs">
+        <div class="program-chair">
+            <img src="Chair/TABLIGAN.jpg" height="150" width="150">
+            <h3>FERDINAND D. TABLIGAN, RCE, M.Eng.</h3>
+            <p>BS Civil Engineering (BSCE)</p>
+            <p>Contents to be published soon...</p>
+        </div>
+        <div class="program-chair">
+            <img src="Chair/MARAVE.jpg" alt="Portrait of Melojean C. Marave" height="150" width="200">
+            <h3>MELOJEAN C. MARAVE, LPT, MSIT</h3>
+            <p>BS Computer Engineering (BSCpE)</p>
+            <p>Engr. Melojean C. Marave has an extensive educational background, including a Doctorate in Information Technology 
+                from the Technological Institute of the Philippines and a Doctor of Education Major in Educational Management 
+                from Ramon Magsaysay Technological University, Iba Campus. She holds a Master of Science in Information Technology
+                from the Polytechnic University of the Philippines – Sta. Mesa, Manila. Additionally, she completed a Post-Baccalaureate 
+                Certificate in Professional Education at Ramon Magsaysay Technological University Main Campus Iba, Zambales, and a Trade 
+                Course in IT Course Design and Development from the National Computer Center, National Computer Institute, Diliman Q.C. 
+                Engr. Marave finished CISCO Certified Network Associate Exploration 1, 2, 3, and 4 modules from UP Information Technology 
+                Training Center, UP Diliman Q.C. She earned her Bachelor of Science in Computer Engineering in October 2001. Engr. Marave 
+                currently serves as the BS Computer Engineering Program Chairperson at PRMSU Iba, Zambales, and has been actively involved 
+                in various faculty and extension roles within the university, with a special highlight on community extension. She is a 
+                licensed professional teacher and holds professional memberships with Colleges and Universities in the Philippines and the 
+                Institute of Computer Engineers of the Philippines as a Professional Member. An Accreditor of the Accrediting Agency of 
+                Chartered Colleges and Universities in the Philippines (AACCUP) and Internal Auditor of the International Standard 
+                Organization (ISO). Additionally, she has contributed significantly to youth leadership programs and has received recognition 
+                for her outstanding contributions and leadership. </p>
+        </div>
+        <div class="program-chair">
+            <img src="Chair/DEBOMA.jpg" alt="Portrait of Gilbert D. Deboma" height="150" width="200">
+            <h3>GILBERT D. DEBOMA, REE, M.Eng.</h3>
+            <p>BS Electrical Engineering (BSEE)</p>
+            <p>Engr Gilbert D. Deboma is a faculty of the College of Engineering for 24 years with an Academic Rank of Associate 
+                Professor V. He is a graduate of Bachelor of Science in Electrical Engineering at Technological Institute of the 
+                Philippines – Quezon City. He finished his Master of Science in Electronics Engineering at Andong National 
+                University – South Korea. He is currently taking up PhD in Agricultural Engineering at Central Luzon State 
+                University. Engr Deboma is an active member of the Institute of Integrated Electrical Engineers, Inc., the 
+                accredited professional organization of electrical practitioners of the Philippines.  He is the current dean of 
+                the College of Engineering and concurrent Program Chairperson of the Electrical Engineering Department.</p>
+        </div>
+        <div class="program-chair">
+            <img src="Chair/DEDICATORIA.jpg" alt="Portrait of Marlon James A. Dedicatoria" height="150" width="200">
+            <h3>MARLON JAMES A. DEDICATORIA, RMEE, Ph.D.</h3>
+            <p>BS Mechanical Engineering (BSME)</p>
+            <p>Dr. Marlon James A. Dedicatoria is a licensed mechanical engineer and currently serves as the Vice President for 
+                Research and Development, as well as the Chairperson of the Mechanical Engineering Program at President Ramon 
+                Magsaysay State University (PRMSU) in Iba, Zambales. With over ten years of teaching experience, he has been 
+                instructing professional courses within the Bachelor of Science in Mechanical Engineering (BSME) program at 
+                PRMSU's College of Engineering. Additionally, he holds a lecturing position at the university's graduate school, 
+                where he teaches mathematics courses.
+
+                Dr. Dedicatoria earned his Bachelor of Science degree in Mechanical Engineering from Ramon Magsaysay 
+                Technological University in 2006. Subsequently, he pursued his Master of Science in Mechanical Design and Systems 
+                Engineering at Andong National University, South Korea, graduating in 2010. He furthered his academic pursuits by 
+                completing his PhD in Mechanical Design and Systems Engineering from Andong National University in 2013. 
+                Following his doctoral studies, he served as a post-doctoral fellow at the same university's Materials Behavior 
+                Evaluation Laboratory under the guidance of Prof. Hyung-Seop Shin from 2013 to 2014.
+                
+                His research publications primarily focus on the electromechanical property evaluation of high-temperature 
+                superconductors. Presently, Dr. Dedicatoria holds the position of Professor 3 at PRMSU.</p>
+        </div>
+        <div class="program-chair">
+            <img src="Chair/DESIERTO.png" alt="Portrait of Dorothy Joyce Solpico Desierto" height="150" width="200">
+            <h3>DOROTHY JOYCE SOLPICO DESIERTO</h3>
+            <p>BS Mining Engineering (BSEM)</p>
+            <p>Contents to be published soon...</p>
+        </div>
+    </div>
+
+    <!-- Faculty Members Section -->
+    <div class="faculty-title">
+        Faculty Members 
+    </div>
+    <div class="faculty-section">
+        <div class="faculty-buttons">
+            <button onclick="toggleFaculty('civil-engineering')">Civil Engineering Department</button>
+            <button onclick="toggleFaculty('computer-engineering')">Computer Engineering Department</button>
+            <button onclick="toggleFaculty('mechanical-engineering')">Mechanical Engineering Department</button>
+            <button onclick="toggleFaculty('electrical-engineering')">Electrical Engineering Department</button>
+            <button onclick="toggleFaculty('mining-engineering')">Mining Engineering Department</button>
+            <button onclick="toggleFaculty('allied-general-education')">Allied and General Education Department</button>
+        </div>
+        <div id="civil-engineering" class="faculty-members">
+            <!-- Add faculty members here -->
+
+            <!-- CE -->
+            <div class="faculty-member">
+                <img src="CE/ANTONIO.PNG" alt="Faculty Member">
+                <p>Engr. ABRAHAM ANTONIO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CE/ROMERO.png" alt="Faculty Member">
+                <p>Engr. RONEL E. ROMERO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CE/DALUSONG.png" alt="Faculty Member">
+                <p>Engr. JEMAR DALUSONG</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CE/ARAMAY.png" alt="Faculty Member">
+                <p>Engr. RAYMOND ARAMAY</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CE/VICHO M.jpg" alt="Faculty Member">
+                <p>Engr. MA.THEREZA VICHO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CE/VICHO V.jpg" alt="Faculty Member">
+                <p>Engr. VICTOR D. VICHO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CE/TOMBALE.jpg" alt="Faculty Member">
+                <p>Engr. ELENA LYN TOMBALE</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CE/BISQUERA.jpg" alt="Faculty Member">
+                <p>Engr. RYV ANTONY BISQUERA</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CE/MANANGAN.jpg" alt="Faculty Member">
+                <p>Engr. JOVEN MANANGAN</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CE/ROMULO.jpg" alt="Faculty Member">
+                <p>Engr. ELOISA ROMULO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CE/FERNANDEZ.jpg" alt="Faculty Member">
+                <p>Engr. MARKO ANTONIO FERNANDEZ</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CE/Aramay ZM.jpg" alt="Faculty Member">
+                <p>Engr. ZENDREE ARAMAY</p>
+            </div>
+        </div>
+
+        <!-- CpE -->
+        <div id="computer-engineering" class="faculty-members">
+            <div class="faculty-member">
+                <img src="CpE/BARRERA.png" alt="Faculty Member">
+                <p>Engr. RICKY S. BARRERA</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CpE/ACAIN.png" alt="Faculty Member">
+                <p>Engr. BRYAN CARLOS B. ACAIN</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CpE/SABADO.jpg" alt="Faculty Member">
+                <p>Engr. OLIVER A. SABADO, JR.</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CpE/MARTIN.jpg" alt="Faculty Member">
+                <p>Engr. DIONISIO M. MARTIN, JR.</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CpE/CANTILLO.jpg" alt="Faculty Member">
+                <p>Engr. FROILAN G. CANTILLO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CpE/MORILLO.png" alt="Faculty Member">
+                <p>Engr. ALLAN JAY L. MORILLO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CpE/BASILIO.jpg" alt="Faculty Member">
+                <p>Engr. DENNIZE JIANA R. BASILIO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CpE/LEOMO.png" alt="Faculty Member">
+                <p>Engr. KIRK LEE P. LEOMO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="CpE/REMOLACIO.jpg" alt="Faculty Member">
+                <p>Engr. MARTEEN BERAVON REMOLACIO</p>
+            </div>
+        </div>
+        
+        <!-- ME -->
+        <div id="mechanical-engineering" class="faculty-members">
+            <div class="faculty-member">
+                <img src="ME/BAUTISTA.jpg" alt="Faculty Member">
+                <p>Engr. KARLA JESSICA BAUTISTA</p>
+            </div>
+            <div class="faculty-member">
+                <img src="ME/CUEVAS.jpg" alt="Faculty Member">
+                <p>Engr. JASPER ANTHONY CUEVAS</p>
+            </div>
+            <div class="faculty-member">
+                <img src="ME/ROMUALDO.jpg" alt="Faculty Member">
+                <p>Engr. MICHAEL ROMUALDO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="ME/PADUA.jpg" alt="Faculty Member">
+                <p>Engr. NHOELLE PADUA</p>
+            </div>
+            
+        <!-- EE -->
+        </div>
+        <div id="electrical-engineering" class="faculty-members">
+            <div class="faculty-member">
+                <img src="EE/PARALLAG.jpg" alt="Faculty Member">
+                <p>Engr. MARK LESTER PARALLAG</p>
+            </div>
+            <div class="faculty-member">
+                <img src="EE/MARQUEZ.png" alt="Faculty Member">
+                <p>Engr. DORIS H. MARQUEZ</p>
+            </div>
+            <div class="faculty-member">
+                <img src="EE/ORIANZA.jpg" alt="Faculty Member">
+                <p>Engr. SENATO ORIANZA</p>
+            </div>
+            <div class="faculty-member">
+                <img src="EE/MARAFINA.jpg" alt="Faculty Member">
+                <p>Engr. CHRISTIAN MARAFINA</p>
+            </div>
+            <div class="faculty-member">
+                <img src="EE/EDARAD.JPG" alt="Faculty Member">
+                <p>Engr. FERNAN EDARAD</p>
+            </div>
+            <div class="faculty-member">
+                <img src="EE/BALICACO.jpg" alt="Faculty Member">
+                <p>Engr. RUE LEI BALICACO</p>
+            </div>
+        </div>
+
+        <!-- ME -->
+        <div id="mining-engineering" class="faculty-members">
+            <div class="faculty-member">
+                <img src="https://placehold.co/100x100" alt="Faculty Member">
+                <p>Content to be published...</p>
+            </div>
+            <div class="faculty-member">
+                <img src="https://placehold.co/100x100" alt="Faculty Member">
+                <p>Content to be published...</p>
+            </div>
+            <div class="faculty-member">
+                <img src="https://placehold.co/100x100" alt="Faculty Member">
+                <p>Content to be published...</p>
+            </div>
+            <div class="faculty-member">
+                <img src="https://placehold.co/100x100" alt="Faculty Member">
+                <p>Faculty Member Name</p>
+            </div>
+            <div class="faculty-member">
+                <img src="https://placehold.co/100x100" alt="Faculty Member">
+                <p>Content to be published...</p>
+            </div>
+        </div>
+        
+        <!-- Allied -->
+        <div id="allied-general-education" class="faculty-members">
+            <div class="faculty-member">
+                <img src="AL/EBUE.png" alt="Faculty Member">
+                <p>Engr. MELISSA M. EBUE</p>
+            </div>
+            <div class="faculty-member">
+                <img src="AL/RICO.jpg" alt="Faculty Member">
+                <p>Engr. CLARISSE HOPE M. RICO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="AL/BUGAYONG.png" alt="Faculty Member">
+                <p>Dr. EMELYN E. BUGAYONG</p>
+            </div>
+            <div class="faculty-member">
+                <img src="AL/DULLAS.jpg" alt="Faculty Member">
+                <p>Engr. CINDY DULLAS</p>
+            </div>
+            <div class="faculty-member">
+                <img src="AL/PUNZALAN.JPG" alt="Faculty Member">
+                <p>Dr. EDNA PUNZALAN</p>
+            </div>
+            <div class="faculty-member">
+                <img src="AL/DANILA.jpg" alt="Faculty Member">
+                <p>Ms. JANE DANILLA</p>
+            </div>
+            <div class="faculty-member">
+                <img src="AL/MEDRANO.jpg" alt="Faculty Member">
+                <p>Mr. LUCIANO MEDRANO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="AL/BESA.jpg" alt="Faculty Member">
+                <p>Ms. APRIL BESA</p>
+            </div>
+            <div class="faculty-member">
+                <img src="AL/MADELLE.jpg" alt="Faculty Member">
+                <p>Ms. SANTOS MADELLE</p>
+            </div>
+            <div class="faculty-member">
+                <img src="AL/PARANGAT.jpg" alt="Faculty Member">
+                <p>Ms. MONICA PARANGAT</p>
+            </div>
+            <div class="faculty-member">
+                <img src="AL/QUITORIANO.jpg" alt="Faculty Member">
+                <p>Ms. KAREN QUITORIANO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="AL/PELINIO.jpg" alt="Faculty Member">
+                <p>Ms. JIO ENKA PELINIO</p>
+            </div>
+            <div class="faculty-member">
+                <img src="AL/VELARDE.jpg" alt="Faculty Member">
+                <p>Ms. MAE JOYCE VELARDE</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Contact: info@prmsu.edu.ph | Copyright 2024 PRMSU College of Engineering</p>
+    </div>
+
+    <script>
+        function toggleFaculty(department) {
+            const sections = document.querySelectorAll('.faculty-members');
+            sections.forEach(section => {
+                if (section.id === department) {
+                    section.style.display = section.style.display === 'flex' ? 'none' : 'flex';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

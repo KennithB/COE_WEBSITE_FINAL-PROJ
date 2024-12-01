@@ -1,0 +1,640 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curricular Offerings - PRMSU College of Engineering</title>
+    <link rel="stylesheet" href="Css-file.css">
+    <style>
+        .navbar {
+            position: sticky;
+            top: 0; /* Stick to the top of the viewport */
+            z-index: 1000; /* Ensure it stays above other elements */
+            background-color: rgb(0, 0, 0); /* Optional: Add a background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            float: left;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .sidebar h2 {
+            font-size: 18px;
+            color: white;
+            background-color: orange;
+            padding: 10px;
+            margin: 0 0 10px 0;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: black;
+            text-decoration: none;
+            background-color: #e6e6e6;
+            margin-bottom: 5px;
+        }
+        .sidebar a:hover {
+            background-color: #cccccc;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .content-placeholder, .document-section {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 18px;
+        }
+        .document-section {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .document-section h3 {
+            margin-top: 0;
+        }
+        .sub-links {
+            display: none;
+            padding-left: 20px;
+        }
+        .sub-links a {
+            background-color: #d9d9d9;
+            margin-bottom: 5px;
+        }
+        .document-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        } 
+        .search-container {
+            position: relative;
+        
+            right: 30px;
+        }
+        
+        /* Mobile layout styles */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 130px;
+                background-color: #f2f2f2;
+                padding: 10px;
+                float: left;
+                height: 100vh;
+                overflow-y: auto;
+            }
+            .document-section {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+            .content {
+                margin-left: 130px;
+                padding: 20px;
+                height: 100vh;
+                overflow-y: auto;
+            }
+
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+                position: sticky;
+                position: sticky;
+                top: 0; /* Stick to the top of the viewport */
+                z-index: 1000; /* Ensure it stays above other elements */
+                background-color: rgb(0, 0, 0); /* Optional: Add a background */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+            }
+            .navbar-left {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                position: relative;
+            }
+            .navbar-left #logo {
+                margin-right: 10px;
+            }
+            .navbar-toggle {
+                display: inline-block;
+                cursor: pointer;
+                font-size: 1.8rem;
+                color: #ea7210;
+                background: none;
+                border: none;
+                position: absolute;
+                right: 50px; /* Adjust this value to move it left */
+                top: 50%; /* Vertically center it */
+                transform: translateY(-50%);
+            }
+            .navbar-right {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin-top: 10px;
+            }
+            .navbar.active .navbar-right {
+                display: flex;
+            }
+        }
+
+        /* Desktop layout styles */
+        @media (min-width: 769px) {
+            .navbar-toggle {
+                display: none; /* Hide hamburger icon on larger screens */
+            }
+            .navbar-right {
+                display: flex; /* Menu items are visible on larger screens */
+                flex-direction: row;
+                gap: 15px;
+            }
+        }
+
+
+        /* Mobile layout styles */
+        @media (max-width: 768px) {
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 15px;
+                position: relative;
+            }
+            .navbar-left {
+                display: flex;
+                align-items: center;
+            }
+            .navbar-left #logo {
+                margin-right: 10px;
+            }
+
+
+            /* Hamburger toggle button */
+            .navbar-toggle {
+                display: inline-block;
+                font-size: 1.8rem;
+                color: #ea7210;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* Dropdown menu */
+            .navbar-right {
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 60px; /* Position dropdown below navbar */
+                right: 15px; 
+                width: 200px; 
+                background-color: #fff; /* White background */
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for floating effect */
+                z-index: 1000;
+                animation: dropdown-slide 0.3s ease-out; /* Add slide animation */
+            }
+
+            .navbar.active .navbar-right {
+                display: flex; /* Show dropdown when active */
+            }
+
+            /* Buttons inside the dropdown */
+            .navbar-right a {
+                display: block;
+                text-decoration: none;
+                color: #8c3206;
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #f5f5f5; /* Light gray background */
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            /* Hover effect for dropdown buttons */
+            .navbar-right a:hover {
+                background-color: #df4119cb; /* Consistent orange gradient */
+                color: #fff; /* White text on hover */
+                transform: scale(1.05); /* Slight zoom effect */
+            }
+
+
+            /* Dropdown animation */
+            @keyframes dropdown-slide {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            /* Uniform button styles for all links */
+            .navbar-right a, .navbar-right .dropbtn {
+                display: block;
+                text-decoration: none;
+                color: #843208;
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #f5f5f5; /* Light gray background */
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            /* Hover effect for all buttons */
+            .navbar-right a:hover, .navbar-right .dropbtn:hover {
+                background-color: #df4119cb; /* Consistent orange gradient */
+                color: #fff; /* White text on hover */
+                transform: scale(1.05); /* Slight zoom effect */
+            }
+        }    
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <!-- Left section: Logo and Title -->
+        <div class="navbar-left">
+        <a href="index.html">
+            <img src="logo.png" alt="PRMSU Logo" id="logo">
+        </a>
+            <h1>PRMSU College of Engineering</h1>
+            <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+        </div>
+
+        <!-- Right section: Navigation Links and Search Bar -->
+        <div class="navbar-right">
+            <a href="index.html" id="home-link">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Instruction</button>
+                <div class="dropdown-content">
+                    <a href="curricular-offerings.html">Curricular Offerings</a>
+                    <a href="faculty.html">Faculty</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='research.html'">Research +</button>
+                <div class="dropdown-content">
+                    <a href="bsce-research.html">BSCE Research</a>
+                    <a href="bscpe-research.html">BSCpE Research</a>
+                    <a href="bsee-research.html">BSEE Research</a>
+                    <a href="bsme-research.html">BSME Research</a>
+                </div>
+            </div>
+            <a href="Extension.html">Extension</a>
+            <a href="History.html">History</a>
+            <!-- Search Bar Section -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                placeholder="Search..." 
+                class="search-bar" 
+                oninput="showResults(this.value)"
+            >
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleNavbar() {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+    }
+</script>
+
+<style>
+    .search-container {
+        position: relative;
+        display: flex;
+        flex-grow: 1; /* Allow the search container to use available space */
+        margin: 0; /* Remove any default margin */
+    }
+
+    .search-bar {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        width: 65%; /* Fill the container's width */
+        max-width: 600px; /* Prevents it from being too wide */
+        margin-right: auto; /* Removes space on the right */
+        margin-left: auto; /* Centers the search bar */
+    }
+
+    .search-results {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-height: 150px;
+        overflow-y: auto;
+        width: 100%; /* Matches the search bar's width */
+        z-index: 1000;
+    }
+
+    .search-results p {
+        margin: 0;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    .search-results p:hover {
+        background-color: #f0f0f0;
+    }
+</style>
+
+<script>
+    const searchItems = [
+        { name: "Home", link: "HOME.html" },
+        { name: "Curricular Offerings", link: "curricular-offerings.html" },
+        { name: "Faculty", link: "faculty.html" },
+        { name: "Research", link: "research.html" },
+        { name: "BSCE Research", link: "bsce-research.html" },
+        { name: "BSCpE Research", link: "bscpe-research.html" },
+        { name: "BSEE Research", link: "bsee-research.html" },
+        { name: "BSME Research", link: "bsme-research.html" },
+        { name: "Extension", link: "Extension.html" },
+        { name: "History", link: "History.html" }
+    ];
+
+    function showResults(value) {
+        const results = document.getElementById('search-results');
+        results.innerHTML = '';
+        if (value) {
+            const filteredItems = searchItems.filter(item =>
+                item.name.toLowerCase().includes(value.toLowerCase())
+            );
+            if (filteredItems.length > 0) {
+                filteredItems.forEach(item => {
+                    const p = document.createElement('p');
+                    p.textContent = item.name;
+                    p.onclick = () => {
+                        window.location.href = item.link;
+                    };
+                    results.appendChild(p);
+                });
+                results.style.display = 'block';
+            } else {
+                results.style.display = 'none';
+            }
+        } else {
+            results.style.display = 'none';
+        }
+    }
+</script>
+        </div>
+    </div>
+
+    <!-- Sidebar and Content -->
+    <div class="sidebar">
+        <h2>Curriculum</h2>
+        <a href="#" onclick="toggleSubLinks('civil-engineering-links')">Civil Engineering Department</a>
+        <div id="civil-engineering-links" class="sub-links">
+            <a href="#" onclick="showDocument('civil-2022')">2022</a>
+            <a href="#" onclick="showDocument('civil-2019')">2019</a>
+            <a href="#" onclick="showDocument('civil-2018-stem')">2018 (STEM)</a>
+            <a href="#" onclick="showDocument('civil-2018-non-stem')">2018 (NON STEM)</a>
+        </div>
+        <a href="#" onclick="toggleSubLinks('computer-engineering-links')">Computer Engineering Department</a>
+        <div id="computer-engineering-links" class="sub-links">
+            <a href="#" onclick="showDocument('computer-2022')">2022</a>
+            <a href="#" onclick="showDocument('computer-2019')">2019</a>
+            <a href="#" onclick="showDocument('computer-2018')">2018</a>
+        </div>
+        <a href="#" onclick="toggleSubLinks('mechanical-engineering-links')">Mechanical Engineering Department</a>
+        <div id="mechanical-engineering-links" class="sub-links">
+            <a href="#" onclick="showDocument('mechanical-2022')">2022</a>
+            <a href="#" onclick="showDocument('mechanical-2019')">2019</a>
+            <a href="#" onclick="showDocument('mechanical-2018-stem')">2018 (STEM)</a>
+            <a href="#" onclick="showDocument('mechanical-2018-non-stem')">2018 (NON STEM)</a>
+        </div>
+        <a href="#" onclick="toggleSubLinks('electrical-engineering-links')">Electrical Engineering Department</a>
+        <div id="electrical-engineering-links" class="sub-links">
+            <a href="#" onclick="showDocument('electrical-2022')">2022</a>
+            <a href="#" onclick="showDocument('electrical-2019')">2019</a>
+            <a href="#" onclick="showDocument('electrical-2018-stem')">2018 (STEM)</a>
+            <a href="#" onclick="showDocument('electrical-2018-non-stem')">2018 (NON STEM)</a>
+        </div>
+        <a href="#" onclick="toggleSubLinks('mining-engineering-links')">Mining Engineering Department</a>
+        <div id="mining-engineering-links" class="sub-links">
+            <a href="#">202x</a>
+        </div>
+        <h2>CMO</h2>
+        <a href="#" onclick="showDocument('civil-cmo')">Civil Engineering CMO</a>
+        <a href="#" onclick="showDocument('computer-cmo')">Computer Engineering CMO</a>
+        <a href="#" onclick="showDocument('mechanical-cmo')">Mechanical Engineering CMO</a>
+        <a href="#" onclick="showDocument('electrical-cmo')">Electrical Engineering CMO</a>
+        <a href="#" onclick="showDocument('mining-cmo')">Mining Engineering CMO</a>
+    </div>
+    <div class="content">
+        
+        <!-- Civil Engineering -->
+        <div id="civil-2022" class="document-section">
+            <h3>Civil Engineering 2022</h3>
+            <iframe class="document-iframe" src="https://drive.google.com/file/d/1dAxJiHzIfv6htUOxCNrbk-bxUfF7X28I/preview"></iframe>
+            <br>
+            <a href="https://drive.google.com/uc?export=download&id=1dAxJiHzIfv6htUOxCNrbk-bxUfF7X28I" download>
+                <button>Download Civil Engineering 2022</button>
+            </a>
+        </div>
+        <div id="civil-2019" class="document-section">
+            <h3>Civil Engineering 2019</h3>
+            <iframe class="document-iframe" src="https://drive.google.com/file/d/1IDMuf4xRgCHvWchZGmHHCI8T6XDV2rI0/preview"></iframe>
+            <br>
+            <a href="https://drive.google.com/uc?export=download&id=1IDMuf4xRgCHvWchZGmHHCI8T6XDV2rI0" download>
+                <button>Download Civil Engineering 2019</button>
+            </a>
+        </div>
+        <div id="civil-2018-stem" class="document-section">
+            <h3>Civil Engineering 2018 (STEM)</h3>
+            <iframe class="document-iframe" src="https://drive.google.com/file/d/1PiETznugHPxM_sfhCu5jz40QSoqpBSx0/preview"></iframe>
+            <br>
+            <a href="https://drive.google.com/uc?export=download&id=1PiETznugHPxM_sfhCu5jz40QSoqpBSx0" download>
+                <button>Download Civil Engineering 2018 (STEM)</button>
+            </a>
+        </div>
+        <div id="civil-2018-non-stem" class="document-section">
+            <h3>Civil Engineering 2018 (NON STEM)</h3>
+            <iframe class="document-iframe" src="https://drive.google.com/file/d/1NMIBRoesUtYFBcwrEBkWPnJ6aKAqDDMe/preview"></iframe>
+            <br>
+            <a href="https://drive.google.com/uc?export=download&id=1NMIBRoesUtYFBcwrEBkWPnJ6aKAqDDMe" download>
+                <button>Download Civil Engineering 2018 (NON STEM)</button>
+            </a>
+        </div>
+
+        <!-- Computer Engineering -->
+        <div id="computer-2022" class="document-section">
+            <h3>Computer Engineering 2022</h3>
+            <iframe class="document-iframe" src="https://drive.google.com/file/d/1uoopTW6_3ilw7qkzFTO0VgObgS96TtPQ/preview"></iframe>
+            <br>
+            <a href="https://drive.google.com/uc?export=download&id=1uoopTW6_3ilw7qkzFTO0VgObgS96TtPQ" download>
+                <button>Download Computer Engineering 2022</button>
+            </a>
+        </div>
+        <div id="computer-2019" class="document-section">
+            <h3>Computer Engineering 2019</h3>
+            <p>Document content for Computer Engineering 2019.</p>
+        </div>
+        <div id="computer-2018" class="document-section">
+            <h3>Computer Engineering 2018</h3>
+            <iframe class="document-iframe" src="https://drive.google.com/file/d/1gb9F1AjD0ZDIyK0rHltQg5Vzz0a2ia3z/preview"></iframe>
+            <br>
+            <a href="https://drive.google.com/uc?export=download&id=1gb9F1AjD0ZDIyK0rHltQg5Vzz0a2ia3z" download>
+                <button>Download Computer Engineering 2018</button>
+            </a>
+        </div>
+
+        <!-- Mechanical Engineering -->
+<div id="mechanical-2022" class="document-section">
+    <h3>Mechanical Engineering 2022</h3>
+    <iframe class="document-iframe" src="https://drive.google.com/file/d/1_ohlfVvqBD2BVIU3iI1xAJXe8tN67pxn/preview"></iframe>
+    <br>
+    <a href="https://drive.google.com/uc?export=download&id=1_ohlfVvqBD2BVIU3iI1xAJXe8tN67pxn" download>
+        <button>Download Mechanical Engineering 2022</button>
+    </a>
+</div>
+
+<div id="mechanical-2019" class="document-section">
+    <h3>Mechanical Engineering 2019</h3>
+    <iframe class="document-iframe" src="https://drive.google.com/file/d/1qIRVGwAu4GZJbLNw8PRsArWFI_y_DXBY/preview"></iframe>
+    <br>
+    <a href="https://drive.google.com/uc?export=download&id=1qIRVGwAu4GZJbLNw8PRsArWFI_y_DXBY" download>
+        <button>Download Mechanical Engineering 2019</button>
+    </a>
+</div>
+
+<div id="mechanical-2018-stem" class="document-section">
+    <h3>Mechanical Engineering 2018 (STEM)</h3>
+    <iframe class="document-iframe" src="https://drive.google.com/file/d/1iPmxV6OHfDDlV5JZmDzfngqvjPDF-kfp/preview"></iframe>
+    <br>
+    <a href="https://drive.google.com/uc?export=download&id=1iPmxV6OHfDDlV5JZmDzfngqvjPDF-kfp" download>
+        <button>Download Mechanical Engineering 2018 (STEM)</button>
+    </a>
+</div>
+
+<div id="mechanical-2018-non-stem" class="document-section">
+    <h3>Mechanical Engineering 2018 (NON STEM)</h3>
+    <iframe class="document-iframe" src="https://drive.google.com/file/d/1QWS1lT3bmBREKOYPhTT1IOw-kW2eI-r9/preview"></iframe>
+    <br>
+    <a href="https://drive.google.com/uc?export=download&id=1QWS1lT3bmBREKOYPhTT1IOw-kW2eI-r9" download>
+        <button>Download Mechanical Engineering 2018 (NON STEM)</button>
+    </a>
+</div>
+
+
+        <!-- Electrical Engineering -->
+<div id="electrical-2022" class="document-section">
+    <h3>Electrical Engineering 2022</h3>
+    <iframe class="document-iframe" src="https://drive.google.com/file/d/1L7vvkXEFR4IZ_-YJfMCr5oUjOJGyBand/preview"></iframe>
+    <p><a href="https://drive.google.com/file/d/1L7vvkXEFR4IZ_-YJfMCr5oUjOJGyBand/view" target="_blank">Download Electrical Engineering 2022</a></p>
+</div>
+<div id="electrical-2019" class="document-section">
+    <h3>Electrical Engineering 2019</h3>
+    <iframe class="document-iframe" src="https://drive.google.com/file/d/1LN2HKQoYfgk0vAALgU9VDPaRtPQ2iEhi/preview"></iframe>
+    <p><a href="https://drive.google.com/file/d/1LN2HKQoYfgk0vAALgU9VDPaRtPQ2iEhi/view" target="_blank">Download Electrical Engineering 2019</a></p>
+</div>
+<div id="electrical-2018-stem" class="document-section">
+    <h3>Electrical Engineering 2018 (STEM)</h3>
+    <iframe class="document-iframe" src="https://drive.google.com/file/d/1Mondhpb6XfCz4c6eiAIBlCaChTH7vofL/preview"></iframe>
+    <p><a href="https://drive.google.com/file/d/1Mondhpb6XfCz4c6eiAIBlCaChTH7vofL/view" target="_blank">Download Electrical Engineering 2018 (STEM)</a></p>
+</div>
+<div id="electrical-2018-non-stem" class="document-section">
+    <h3>Electrical Engineering 2018 (NON STEM)</h3>
+    <iframe class="document-iframe" src="https://drive.google.com/file/d/13XBB9Q3Azof4-OJ1COD13ZPGTEaPl2VZ/preview"></iframe>
+    <p><a href="https://drive.google.com/file/d/13XBB9Q3Azof4-OJ1COD13ZPGTEaPl2VZ/view" target="_blank">Download Electrical Engineering 2018 (NON STEM)</a></p>
+</div>
+
+
+        <!-- Mining Engineering -->
+        <div id="mining-202x" class="document-section">
+            <h3>Mining Engineering 202x</h3>
+            <p>Document content for Mining Engineering 202x.</p>
+        </div>
+
+        <!-- CMO Documents -->
+        <div id="civil-cmo" class="document-section">
+            <h3>Civil Engineering CMO</h3>
+            <iframe class="document-iframe" src="https://drive.google.com/file/d/1dAxJiHzIfv6htUOxCNrbk-bxUfF7X28I/preview"></iframe>
+            <br>
+            <a href="https://drive.google.com/uc?export=download&id=1dAxJiHzIfv6htUOxCNrbk-bxUfF7X28I" download>
+                <button>Download Civil Engineering CMO</button>
+            </a>
+        </div>
+        <div id="computer-cmo" class="document-section">
+            <h3>Computer Engineering CMO</h3>
+            <iframe class="document-iframe" src="https://drive.google.com/file/d/1uoopTW6_3ilw7qkzFTO0VgObgS96TtPQ/preview"></iframe>
+            <br>
+            <a href="https://drive.google.com/uc?export=download&id=1uoopTW6_3ilw7qkzFTO0VgObgS96TtPQ" download>
+                <button>Download Computer Engineering CMO</button>
+            </a>
+        </div>
+        <div id="mechanical-cmo" class="document-section">
+            <h3>Mechanical Engineering CMO</h3>
+            <iframe class="document-iframe" src="https://drive.google.com/file/d/1_ohlfVvqBD2BVIU3iI1xAJXe8tN67pxn/preview"></iframe>
+            <br>
+            <a href="https://drive.google.com/uc?export=download&id=1_ohlfVvqBD2BVIU3iI1xAJXe8tN67pxn" download>
+                <button>Download Mechanical Engineering CMO</button>
+            </a>
+        </div>
+        <div id="electrical-cmo" class="document-section">
+            <h3>Electrical Engineering CMO</h3>
+            <iframe class="document-iframe" src="https://drive.google.com/file/d/1qIRVGwAu4GZJbLNw8PRsArWFI_y_DXBY/preview"></iframe>
+            <br>
+            <a href="https://drive.google.com/uc?export=download&id=1qIRVGwAu4GZJbLNw8PRsArWFI_y_DXBY" download>
+                <button>Download Electrical Engineering CMO</button>
+            </a>
+        </div>
+        <div id="mining-cmo" class="document-section">
+            <h3>Mining Engineering CMO</h3>
+            <p>Document content for Mining Engineering CMO.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubLinks(id) {
+            var subLinks = document.getElementById(id);
+            if (subLinks.style.display === "block") {
+                subLinks.style.display = "none";
+            } else {
+                subLinks.style.display = "block";
+            }
+        }
+
+        function showDocument(id) {
+            var sections = document.getElementsByClassName('document-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = 'none';
+            }
+            var section = document.getElementById(id);
+            if (section) {
+                section.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,601 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRMSU College of Engineering - Extension</title>
+    <link rel="stylesheet" href="Css-file.css">
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            padding: 10px 20px;
+            border-bottom: 2px solid #f0c040;
+        }
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-left img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .navbar-left h1 {
+            font-size: 24px;
+            background: linear-gradient(to right, #f0c040, #d45017);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-right a, .dropbtn {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #000000;
+            border: none;
+            cursor: pointer;
+        }
+        .navbar-right a:hover, .dropbtn:hover {
+            background-color: #d4a017;
+            color: #000000;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #000000;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #ffffff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #d4a017;
+            color: #000000;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .search-bar {
+            padding: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+        }
+        .content {
+            padding: 20px;
+            margin-top: 60px; 
+        }
+        .footer {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 2px solid #f0c040;
+        }
+        .container {
+            position: relative;
+            width: 1000%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .title {
+            font-size: 30px;
+            background: linear-gradient(to right, #f0c040, #d4a017);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+            margin-top: 40px; /* Adjusted to move the timeline lower */
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: #ffffff;
+            margin-left: -1px;
+        }
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            margin-bottom: 50px; /* Added space between items */
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -8px;
+            width: 16px;
+            height: 16px;
+            background: #f0c040;
+            border-radius: 50%;
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+        .timeline-item:nth-child(even)::before {
+            left: -8px;
+            right: auto;
+        }
+        .timeline-item .date {
+            font-size: 18px;
+            color: #f0c040;
+            margin-bottom: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+        .timeline-item .content {
+            background: linear-gradient(to right, #b25a3a, #ad4809);
+            padding: 20px;
+            border-radius: 8px;
+            color: #ffffff;
+            position: relative;
+            margin-top: 10px; /* Adjusted to align with the circles */
+        }
+        .timeline-item .content::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid #b23a48;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+        .timeline-item:nth-child(even) .content::after {
+            left: auto;
+            right: 100%;
+            border-left: none;
+            border-right: 10px solid #b23a48;
+        }
+        .timeline-item .content h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            background: linear-gradient(to right, #f0c040, #d4a017);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Times New Roman', serif;
+        }
+        .timeline-item .content p {
+            margin: 0;
+            font-size: 16px;
+            color: #ffffff;
+        }
+        .department-title {
+            font-size: 30px;
+            background: linear-gradient(to right, #f0a740, #d45617);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            position: absolute;
+            top: -40px; 
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+           
+        }
+
+        /* Mobile layout styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+                position: relative;
+            }
+            .navbar-left {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                position: relative;
+            }
+            .navbar-left #logo {
+                margin-right: 10px;
+            }
+            .navbar-toggle {
+                display: inline-block;
+                cursor: pointer;
+                font-size: 1.8rem;
+                color: #ea7210;
+                background: none;
+                border: none;
+                position: absolute;
+                right: 50px; /* Adjust this value to move it left */
+                top: 50%; /* Vertically center it */
+                transform: translateY(-50%);
+            }
+            .navbar-right {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin-top: 10px;
+            }
+            .navbar.active .navbar-right {
+                display: flex;
+            }
+        }
+
+        /* Desktop layout styles */
+        @media (min-width: 769px) {
+            .navbar-toggle {
+                display: none; /* Hide hamburger icon on larger screens */
+            }
+            .navbar-right {
+                display: flex; /* Menu items are visible on larger screens */
+                flex-direction: row;
+                gap: 15px;
+            }
+        }
+
+
+        /* Mobile layout styles */
+        @media (max-width: 768px) {
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 15px;
+                position: relative;
+            }
+            .navbar-left {
+                display: flex;
+                align-items: center;
+            }
+            .navbar-left #logo {
+                margin-right: 10px;
+            }
+            .navbar-left h1{
+                padding: 0;
+                font-size: 4vw;
+            }
+
+            /* Hamburger toggle button */
+            .navbar-toggle {
+                display: inline-block;
+                font-size: 1.8rem;
+                color: #ea7210;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* Dropdown menu */
+            .navbar-right {
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 60px; /* Position dropdown below navbar */
+                right: 15px; 
+                width: 200px; 
+                background-color: #fff; /* White background */
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for floating effect */
+                z-index: 1000;
+                animation: dropdown-slide 0.3s ease-out; /* Add slide animation */
+            }
+
+            .navbar.active .navbar-right {
+                display: flex; /* Show dropdown when active */
+            }
+
+            /* Buttons inside the dropdown */
+            .navbar-right a {
+                display: block;
+                text-decoration: none;
+                color: #8c3206;
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #f5f5f5; /* Light gray background */
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            /* Hover effect for dropdown buttons */
+            .navbar-right a:hover {
+                background-color: #df4119cb; /* Consistent orange gradient */
+                color: #fff; /* White text on hover */
+                transform: scale(1.05); /* Slight zoom effect */
+            }
+
+            /* Dropdown animation */
+            @keyframes dropdown-slide {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            /* Uniform button styles for all links */
+            .navbar-right a, .navbar-right .dropbtn {
+                display: block;
+                text-decoration: none;
+                color: #843208;
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #f5f5f5; /* Light gray background */
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            /* Hover effect for all buttons */
+            .navbar-right a:hover, .navbar-right .dropbtn:hover {
+                background-color: #df4119cb; /* Consistent orange gradient */
+                color: #fff; /* White text on hover */
+                transform: scale(1.05); /* Slight zoom effect */
+            }
+        }  
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <!-- Left section: Logo and Title -->
+        <div class="navbar-left">
+        <a href="index.html">
+            <img src="logo.png" alt="PRMSU Logo" id="logo">
+        </a>
+            <h1>PRMSU College of Engineering</h1>
+            <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+        </div>
+
+        <!-- Right section: Navigation Links and Search Bar -->
+        <div class="navbar-right">
+            <a href="index.html" id="home-link">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Instruction</button>
+                <div class="dropdown-content">
+                    <a href="curricular-offerings.html">Curricular Offerings</a>
+                    <a href="faculty.html">Faculty</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='research.html'">Research +</button>
+                <div class="dropdown-content">
+                    <a href="bsce-research.html">BSCE Research</a>
+                    <a href="bscpe-research.html">BSCpE Research</a>
+                    <a href="bsee-research.html">BSEE Research</a>
+                    <a href="bsme-research.html">BSME Research</a>
+                </div>
+            </div>
+            <a href="Extension.html">Extension</a>
+            <a href="History.html">History</a>
+            <!-- Search Bar Section -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                placeholder="Search..." 
+                class="search-bar" 
+                oninput="showResults(this.value)"
+            >
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .search-container {
+        position: relative;
+        display: flex;
+        flex-grow: 1; /* Allow the search container to use available space */
+        margin: 0; /* Remove any default margin */
+    }
+
+    .search-bar {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        width: 65%; /* Fill the container's width */
+        max-width: 600px; /* Prevents it from being too wide */
+        margin-right: auto; /* Removes space on the right */
+        margin-left: auto; /* Centers the search bar */
+    }
+
+    .search-results {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-height: 150px;
+        overflow-y: auto;
+        width: 100%; /* Matches the search bar's width */
+        z-index: 1000;
+    }
+
+    .search-results p {
+        margin: 0;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    .search-results p:hover {
+        background-color: #f0f0f0;
+    }
+</style>
+
+<script>
+    const searchItems = [
+        { name: "Home", link: "HOME.html" },
+        { name: "Curricular Offerings", link: "curricular-offerings.html" },
+        { name: "Faculty", link: "faculty.html" },
+        { name: "Research", link: "research.html" },
+        { name: "BSCE Research", link: "bsce-research.html" },
+        { name: "BSCpE Research", link: "bscpe-research.html" },
+        { name: "BSEE Research", link: "bsee-research.html" },
+        { name: "BSME Research", link: "bsme-research.html" },
+        { name: "Extension", link: "Extension.html" },
+        { name: "History", link: "History.html" }
+    ];
+
+    function showResults(value) {
+        const results = document.getElementById('search-results');
+        results.innerHTML = '';
+        if (value) {
+            const filteredItems = searchItems.filter(item =>
+                item.name.toLowerCase().includes(value.toLowerCase())
+            );
+            if (filteredItems.length > 0) {
+                filteredItems.forEach(item => {
+                    const p = document.createElement('p');
+                    p.textContent = item.name;
+                    p.onclick = () => {
+                        window.location.href = item.link;
+                    };
+                    results.appendChild(p);
+                });
+                results.style.display = 'block';
+            } else {
+                results.style.display = 'none';
+            }
+        } else {
+            results.style.display = 'none';
+        }
+    }
+</script>
+        </div>
+    </div>
+
+    <!-- Blank Content for Extension Page -->
+    <div class="content">
+        <div class="container">
+            <div class="title">The PRMSU College of Engineering through the years...</div>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <div class="date">Civil Engineering</div>
+                    <div class="content">
+                        <h3 class="department-title">Bachelor of Science in Civil Engineering</h3>
+                        <p style="font-size: 17px; line-height: 1.5; margin-bottom: 20px; text-align: justify;">   The Bachelor of Science in Civil Engineering Program was first proposed to be offered in Botolan 
+                            Campus under the Self-Liquidating Program Scheme in early 2002 under the leadership of President 
+                            Feliciano S. Rosete. The RMTU Board of Regents approved the proposal in early 2003 but Iba Campus was 
+                            chosen as its venue on the issues of facilities and faculty to handle the program in Botolan Campus.
+                            The BSCE program started in the first semester of the school year 2003-2004 under the Institute of 
+                            Evening Opportunity Programs with Prof. Cecilia A. Santiago as the Dean and close coordination with 
+                            Engr. Liza M. Atienza, the Dean of the College of Engineering and Architecture.
+
+                            BSCE had its first batch graduate in March 2008 with a seventy percent passing rate in the board 
+                            examination. In 2010, the Board of Regents and the DBM approved its transfer to CEA as one of the 
+                            RMTU regular programs. The BSCE received its Certificate of Program Compliance and level I AACCUP 
+                            accreditation in 2016 and level II in 2019.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="date">Computer Engineering</div>
+                    <div class="content">
+                        <h3 class="department-title">Bachelor of Science in Computer Engineering</h3>
+                        <p style="font-size: 17px; line-height: 1.5; margin-bottom: 20px; text-align: justify;">The Bachelor of Science in Computer Engineering in President Ramon Magsaysay State University began in 
+                            the 2nd Semester of the Academic Year 2001-2002 when the then Ramon Magsaysay Technological University
+                            (RMTU) Board of Regents (BOR) approved the offering of self-liquidating degree programs in evening 
+                            classes. The degree program was officially opened in the Academic Year 2002-2003 under the Institute 
+                            of Evening Opportunity Program (IEOP) headed by Engr. Juvelyn M. Bueno as the first Program Chair. 
+                            The first batch graduated in 2007.
+
+                            In 2009, Engr. Melojean C. Marave was designated as the Program Chair. In 2012, Engr. Ricky S. 
+                            Barrera assumed the Chairmanship of the program until 2017 which was then designated to Engr. 
+                            Dionisio M. Martin, Jr. up to the present.
+                  
+                            Due to the increasing population of students, the program was offered in Morning and Evening 
+                            Sessions in AY 2004-2005 under the College of Communications and Information Technology (CCIT) and 
+                            IEOP. The last batch of BSCpE in the IEOP graduated in 2012. From then on, the program was offered 
+                            only in the CCIT. In 2018, in compliance with the recommendation of the Commission on Higher 
+                            Education (CHED), the program was transferred under the College of Engineering (COE).</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="date">Electrical Engineering</div>
+                    <div class="content">
+                        <h3 class="department-title">Bachelor of Science in Electrical Engineering</h3>
+                        <p style="font-size: 17px; line-height: 1.5; margin-bottom: 20px; text-align: justify;"> The Bachelor of Science in Electrical Engineering in the President Ramon Magsaysay State University 
+                            began when the RMPC Board of Regents approved the curricula leading to the degrees of Bachelor of Science 
+                            and Master of Science in Electrical Engineering. The degree program was officially opened, and the Department 
+                            was first headed by Engr. Simon Jaring. The Department graduated its first batch of students in 2001, as one 
+                            of oldest program in the College.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="date">Mechanical Engineering</div>
+                    <div class="content">
+                        <h3 class="department-title">Bachelor of Science in Mechanical Engineering</h3>
+                        <p style="font-size: 17px; line-height: 1.5; margin-bottom: 20px; text-align: justify;">The Bachelor of Science in Mechanical Engineering in President RamonMagsaysay State University began 
+                            when the RMPC Board of Regents approved the curricula leading to the degrees of Bachelor of Science 
+                            and Master of Science in Mechanical Engineering. The degree program was officially opened and the 
+                            department was first headed by Engr. Noel M. Dioyan. The department graduated its first batch of 
+                            students in 2001, as one of oldest programs in the College.</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="date">Bachelor of Science in Mining Engineering</div>
+                    <div class="content">
+                        <h3 class="department-title">Mining Engineering</h3>
+                        <p style="font-size: 17px; line-height: 1.5; margin-bottom: 20px; text-align: justify;">Contents to be update...</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Contact: info@prmsu.edu.ph | Copyright 2024 PRMSU College of Engineering</p>
+    </div>
+
+    <script src="Java-Script.js"></script>
+</body>
+</html>

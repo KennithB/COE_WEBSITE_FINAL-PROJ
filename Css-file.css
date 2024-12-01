@@ -1,0 +1,522 @@
+/* Navigation Bar */
+.navbar {
+    background-color: black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    width: 100vw; 
+    z-index: 1000; 
+}
+
+body {
+    margin-top: 60px; 
+}
+
+/* Left section: Logo and Title */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left img {
+    width: 50px;
+    margin-right: 15px;
+}
+
+.navbar-left h1 {
+    font-size: clamp(2vw, 20px, 4vw);
+    background: linear-gradient(90deg, #edce06, #e86c06f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+/* Right section: Navigation Links */
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.navbar-right a:hover {
+    color: #f0a500;
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 162, 0, 0.55);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Dropdown Buttons */
+.dropbtn {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(102, 60, 8, 0.904);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Search Bar 
+.search-bar {
+    border: none;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    width: 200px; 
+    margin-left: 15px; 
+} */
+
+/* Banner */
+.banner {
+    background-image: url('coe_blg.png');
+    background-size: cover; 
+    background-position: top center; 
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 300px; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding: 0;
+}
+
+.carousel {
+    width: 100%;
+    height: 500px; 
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .slider .list {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel .item {
+    flex: 0 0 100%;
+    height: 100%;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    visibility: visible; 
+    display: block; 
+}
+
+.carousel {
+    position: relative;
+    background-image: url('carousel.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 400px; 
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    position: relative;
+    width: 80%; 
+    max-width: 1200px; 
+    overflow: hidden;
+}
+
+/* Styling for navigation buttons */
+.carousel .buttons button {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    background-color: linear-gradient(90deg, #edce06, #e86c06f5); 
+    color: rgb(32, 20, 2); 
+    border: none;
+    padding: 15px; 
+    cursor: pointer;
+    transform: translateY(-50%);
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.5s ease; 
+}
+
+/* Position for Previous Button */
+#prev {
+    left: 10px;
+}
+
+/* Position for Next Button */
+#next {
+    right: 10px;
+}
+
+/* Hover effect for buttons */
+.carousel .buttons button:hover {
+    background-color: rgba(173, 101, 23, 0.354); 
+    transition: background-color 0.3s ease;
+}
+
+/* Styling for navigation dots */
+.carousel .dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel .dots li {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel .dots .active {
+    background-color: #fff;
+}
+
+/* Vision, Mission, Quality Policy Section */
+.section {
+    padding: 20px;
+}
+
+.three-columns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.three-columns div {
+    flex: 1;
+    margin: 10px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* General section styling */
+.section {
+    padding: 50px;
+    margin: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Vision, Mission, Quality Policy Section */
+.section.three-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: rgb(255, 255, 255);  
+    background-image: none;
+    padding: 40px 20px;
+}
+
+/* Individual column styling */
+.column {
+    flex: 1;
+    padding: 20px;
+    background-color: white;  
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Increase font size for Vision, Mission, and Policy */
+.column h2 {
+    font-size: 30px; 
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Animation styling */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.animate-on-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Apply gradient to the text */
+.gradient-text {
+    background: linear-gradient(45deg, orange, rgb(150, 69, 15)); 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    font-weight: bold; 
+}
+
+/* Apply gradient styling to h3 headings in the Latest News section */
+.section .three-columns h3 {
+    background: linear-gradient(to right, #f04b0f, #ea7115bd); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+/* Initial hidden state for animate-on-scroll elements */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* When in view, animate them */
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Gradient styling for h3 elements */
+.news-item h3 {
+    background: linear-gradient(to right, #4a90e2, #50e3c2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* CSS for animations */
+@keyframes scrollPopUp {
+    from {
+      opacity: 0;
+      transform: translateY(35px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .section {
+    opacity: 0;
+    animation: scrollPopUp 1s ease-out forwards;
+    /* Adds infinite looping */
+  }
+  
+  .animated {
+    /* Set animations to play only when the class is applied */
+    animation: scrollPopUp 1s ease-out forwards;
+  }
+  
+/* Mobile layout styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+        position: relative;
+    }
+    .navbar-left {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        position: relative;
+    }
+    .navbar-left #logo {
+        margin-right: 10px;
+    }
+    .navbar-toggle {
+        display: inline-block;
+        cursor: pointer;
+        font-size: 1.8rem;
+        color: #ea7210;
+        background: none;
+        border: none;
+        position: absolute;
+        right: 50px; /* Adjust this value to move it left */
+        top: 50%; /* Vertically center it */
+        transform: translateY(-50%);
+    }
+    .navbar-right {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+    }
+    .navbar.active .navbar-right {
+        display: flex;
+    }
+}
+
+/* Desktop layout styles */
+@media (min-width: 769px) {
+    .navbar-toggle {
+        display: none; /* Hide hamburger icon on larger screens */
+    }
+    .navbar-right {
+        display: flex; /* Menu items are visible on larger screens */
+        flex-direction: row;
+        gap: 15px;
+    }
+}
+
+
+/* Mobile layout styles */
+@media (max-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        position: relative;
+    }
+    .navbar-left {
+        display: flex;
+        align-items: center;
+    }
+    .navbar-left #logo {
+        margin-right: 10px;
+    }
+
+    /* Hamburger toggle button */
+    .navbar-toggle {
+        display: inline-block;
+        font-size: 1.8rem;
+        color: #ea7210;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Dropdown menu */
+    .navbar-right {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px; /* Position dropdown below navbar */
+        right: 15px; 
+        width: 200px; 
+        background-color: #fff; /* White background */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for floating effect */
+        z-index: 1000;
+        animation: dropdown-slide 0.3s ease-out; /* Add slide animation */
+    }
+
+    .navbar.active .navbar-right {
+        display: flex; /* Show dropdown when active */
+    }
+
+    /* Buttons inside the dropdown */
+    .navbar-right a {
+        display: block;
+        text-decoration: none;
+        color: #8c3206;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f5f5f5; /* Light gray background */
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    /* Hover effect for dropdown buttons */
+    .navbar-right a:hover {
+        background-color: #df4119cb; /* Consistent orange gradient */
+        color: #fff; /* White text on hover */
+        transform: scale(1.05); /* Slight zoom effect */
+    }
+
+    /* Dropdown animation */
+    @keyframes dropdown-slide {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    /* Uniform button styles for all links */
+    .navbar-right a, .navbar-right .dropbtn {
+        display: block;
+        text-decoration: none;
+        color: #843208;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f5f5f5; /* Light gray background */
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    /* Hover effect for all buttons */
+    .navbar-right a:hover, .navbar-right .dropbtn:hover {
+        background-color: #df4119cb; /* Consistent orange gradient */
+        color: #fff; /* White text on hover */
+        transform: scale(1.05); /* Slight zoom effect */
+    }
+}
+

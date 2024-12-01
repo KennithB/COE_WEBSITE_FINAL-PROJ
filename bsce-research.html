@@ -1,0 +1,582 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSCE Research - PRMSU College of Engineering</title>
+    <link rel="stylesheet" href="Css-file.css">
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0;
+            color: black;
+        }
+        .navbar {
+            background-color: black;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-left img {
+            height: 50px;
+            margin-left: 20px;
+        }
+        .navbar-left h1 {
+            font-size: 20px;
+            margin: 0;
+            padding: 0 20px;
+            color: #FFA500;
+        }
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-right a, .navbar-right .dropbtn {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+        .navbar-right .search-bar {
+            padding: 5px;
+            margin-right: 20px;
+        }
+        .section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .section h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            position: relative;
+            bottom: 0;
+        }
+      
+        .section .button-container {
+            display: inline-block;
+            text-align: left;
+        }
+        .section .button-container button {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            background-color: #FFA500;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .section .button-container button:hover {
+            background-color: #e69500;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .search-container {
+        position: relative;
+        display: inline-block;
+        }
+        /* Dropdown menu styles for mobile */
+        .dropdown.active .dropdown-content {
+            display: block;
+            position: relative;
+        }
+         
+        .section img {
+            width: 200px;
+            height: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            position: relative;
+            align-items: center;
+            top: 0;   
+            margin-top: 20px;
+            flex-wrap: wrap; /* Makes content wrap on smaller screens */
+         
+        }
+
+      
+    
+        
+
+     /* Mobile layout styles */
+     @media (max-width: 768px) {
+            .button-container img  {
+                width: 30%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            }
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+                position: relative;
+            }
+            .navbar-left {
+                display: flex;
+                
+                width: 100%;
+                position: relative;
+                justify-content: flex-start;
+            }
+            .navbar-left #logo {
+                margin-right: 1vw;
+            }
+            
+            .navbar-toggle {
+                display: inline-block;
+                cursor: pointer;
+                font-size: 1.8rem;
+                color: #ea7210;
+                background: none;
+                border: none;
+                position: absolute;
+                right: 60px; /* Adjust this value to move it left */
+                top: 50%; /* Vertically center it */
+                transform: translateY(-50%);
+            }
+            .navbar-right {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin-top: 10px;
+            }
+            .navbar.active .navbar-right {
+                display: flex;
+            }
+        }
+
+        /* Desktop layout styles */
+        @media (min-width: 769px) {
+            .navbar-toggle {
+                display: none; /* Hide hamburger icon on larger screens */
+            }
+            .navbar-right {
+                display: flex; /* Menu items are visible on larger screens */
+                flex-direction: row;
+                gap: 15px;
+            }
+        }
+
+
+        /* Mobile layout styles */
+        @media (max-width: 768px) {
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                position: relative;
+            }
+            .navbar-left {
+                display: flex;
+                align-items: center;
+            }
+            .navbar-left #logo {
+                margin-right: 10px;
+            }
+            
+            .navbar-left h1{
+                font-size: 4vw;
+                padding: 0;
+            }
+
+            .navbar-left #logo {
+                margin-right: 10px;
+            }
+
+            .navbar-toggle {
+                display: inline-block;
+                cursor: pointer;
+                font-size: 1.8rem;
+                color: #ea7210;
+                background: none;
+                border: none;
+                position: absolute;
+                right: 50px; /* Adjust this value to move it left */
+                top: 50%; /* Vertically center it */
+                transform: translateY(-50%);
+            }
+            .navbar-right {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin-top: 10px;
+            }
+
+            
+
+            /* Hamburger toggle button */
+            .navbar-toggle {
+                display: inline-block;
+                font-size: 1.8rem;
+                color: #ea7210;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* Dropdown menu */
+            .navbar-right {
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 60px; /* Position dropdown below navbar */
+                right: 15px; 
+                width: 200px; 
+                background-color: #fff; /* White background */
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for floating effect */
+                z-index: 1000;
+                animation: dropdown-slide 0.3s ease-out; /* Add slide animation */
+            }
+
+            .navbar.active .navbar-right {
+                display: flex; /* Show dropdown when active */
+            }
+
+            /* Buttons inside the dropdown */
+            .navbar-right a {
+                display: block;
+                text-decoration: none;
+                color: #8c3206;
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #f5f5f5; /* Light gray background */
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            /* Hover effect for dropdown buttons */
+            .navbar-right a:hover {
+                background-color: #df4119cb; /* Consistent orange gradient */
+                color: #fff; /* White text on hover */
+                transform: scale(1.05); /* Slight zoom effect */
+            }
+
+            /* Dropdown animation */
+            @keyframes dropdown-slide {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            /* Uniform button styles for all links */
+            .navbar-right a, .navbar-right .dropbtn {
+                display: block;
+                text-decoration: none;
+                color: #843208;
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #f5f5f5; /* Light gray background */
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            /* Hover effect for all buttons */
+            .navbar-right a:hover, .navbar-right .dropbtn:hover {
+                background-color: #df4119cb; /* Consistent orange gradient */
+                color: #fff; /* White text on hover */
+                transform: scale(1.05); /* Slight zoom effect */
+            }
+        }
+        .footer {
+            background-color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 2px solid #ff6f3c;
+        }
+        .footer h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000000;
+        }
+        .footer h1 span {
+            color: #ff6f3c;
+        }
+        .footer .content {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .footer .content div {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .footer .content div h2 {
+            font-size: 20px;
+            color: #333;
+        }
+        .footer .content div p, .footer .content div a {
+            font-size: 16px;
+            color: #666;
+            text-decoration: none;
+        }
+        .footer .content div a {
+            color: #ff6f3c;
+        }
+        .footer-bottom {
+            background-image: url('footer.jfif'); /* Replace with your image URL */
+            background-size: cover;
+            color: #fff;
+            padding: 25px 0;
+            margin-top: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .footer-bottom::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+        }
+        .footer-bottom p {
+            font-size: 20px;
+            position: relative;
+           
+        }   
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <!-- Left section: Logo and Title -->
+        <div class="navbar-left">
+        <a href="index.html">
+            <img src="logo.png" alt="PRMSU Logo" id="logo">
+        </a>
+            <h1>PRMSU College of Engineering</h1>
+            <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+        </div>
+
+        <!-- Right section: Navigation Links and Search Bar -->
+        <div class="navbar-right">
+            <a href="index.html" id="home-link">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Instruction</button>
+                <div class="dropdown-content">
+                    <a href="curricular-offerings.html">Curricular Offerings</a>
+                    <a href="faculty.html">Faculty</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='research.html'">Research</button>
+                <div class="dropdown-content">
+                    <a href="bsce-research.html">BSCE Research</a>
+                    <a href="bscpe-research.html">BSCpE Research</a>
+                    <a href="bsee-research.html">BSEE Research</a>
+                    <a href="bsme-research.html">BSME Research</a>
+                </div>
+            </div>
+            <a href="Extension.html">Extension</a>
+            <a href="History.html">History</a>
+            <!-- Search Bar Section -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                placeholder="Search..." 
+                class="search-bar" 
+                oninput="showResults(this.value)"
+            >
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+</div>
+<style>
+    .search-bar {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .search-results {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-height: 150px;
+        overflow-y: auto;
+        width: 100%;
+        z-index: 1000;
+    }
+    .search-results p {
+        margin: 0;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+    .search-results p:hover {
+        background-color: #f0f0f0;
+    }
+</style>
+<style>
+    .search-container {
+        position: relative;
+        display: inline-block;
+    }
+    .search-bar {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .search-results {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-height: 150px;
+        overflow-y: auto;
+        width: 100%;
+        z-index: 1000;
+    }
+    .search-results p {
+        margin: 0;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+    .search-results p:hover {
+        background-color: #f0f0f0;
+    }
+</style>
+<script>
+    function toggleNavbar() {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+    }
+</script>
+
+<script>
+    const searchItems = [
+        { name: "Home", link: "HOME.html" },
+        { name: "Curricular Offerings", link: "curricular-offerings.html" },
+        { name: "Faculty", link: "faculty.html" },
+        { name: "Research", link: "research.html" },
+        { name: "BSCE Research", link: "bsce-research.html" },
+        { name: "BSCpE Research", link: "bscpe-research.html" },
+        { name: "BSEE Research", link: "bsee-research.html" },
+        { name: "BSME Research", link: "bsme-research.html" },
+        { name: "Extension", link: "Extension.html" },
+        { name: "History", link: "History.html" }
+    ];
+
+    function showResults(value) {
+        const results = document.getElementById('search-results');
+        results.innerHTML = '';
+        if (value) {
+            const filteredItems = searchItems.filter(item =>
+                item.name.toLowerCase().includes(value.toLowerCase())
+            );
+            if (filteredItems.length > 0) {
+                filteredItems.forEach(item => {
+                    const p = document.createElement('p');
+                    p.textContent = item.name;
+                    p.onclick = () => {
+                        window.location.href = item.link;
+                    };
+                    results.appendChild(p);
+                });
+                results.style.display = 'block';
+            } else {
+                results.style.display = 'none';
+            }
+        } else {
+            results.style.display = 'none';
+        }
+    }
+</script>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="section">
+        <img src="CE logo.png">
+        <h1>BSCE Research</h1>
+    
+        <div class="button-container">
+            <button onclick="window.location.href='document3.pdf'">Content to be updated...</button>
+            
+        </div>
+    </div>
+    
+    
+
+    <!-- Footer -->
+    <div class="footer">
+        <h1>PRMSU <span>College of Engineering</span></h1>
+        <div class="content">
+            <div>
+                <h2>Address</h2>
+                <p>Zone 6 Baytan,<br>Palanginan, Iba,<br>Zambales, Philippines</p>
+            </div>
+            <div>
+                <h2>Social Media</h2>
+                <p>
+                    <a href="https://www.facebook.com/prmsucoe">
+                        Facebook Page
+                    </a>
+                </p>
+                <p>
+                    <a href="https://www.facebook.com/THECOEFFICIENTSPRMSU">
+                        The COEfficients
+                    </a>
+                </p>
+            </div>
+            <div>
+                <h2>Contact Us</h2>
+                <p>online.coe@prmsu.edu.ph</p>
+                <p>(+63) 919 069 9177</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>PRMSU College of Engineering © 2024 All rights reserved</p>
+    </div>
+
+    <script src="Java-Script.js"></script>
+</body>
+</html>

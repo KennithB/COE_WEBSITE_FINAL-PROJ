@@ -1,0 +1,454 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRMSU College of Engineering - Extension</title>
+    <link rel="stylesheet" href="Css-file.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: calc(100vh - 100px); /* Adjust height to account for navbar and footer */
+            padding: 20px;
+            margin-top: 100px; /* Lower down the page */
+        }
+        .text-section {
+            margin-right: 50px;
+            max-width: 300px;
+        }
+        .text-section h1 {
+            font-size: 48px;
+            margin: 0;
+            background: linear-gradient(to right, #f1c40f, #e67e22);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-section p {
+            font-size: 18px;
+            margin: 10px 0 20px 0;
+        }
+        .button {
+            background: linear-gradient(to right, #f1c40f, #e67e22);
+            color: black;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+            width: 100%; /* Align the width with the picture below */
+            margin-top: 20px; /* Move a little bit down */
+        }
+        .image-section {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-left: 20px; /* Move a little bit to the right */
+        }
+        .image-section img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .context-text {
+            text-align: justify;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="navbar-left">
+        <a href="index.html">
+            <img src="logo.png" alt="PRMSU Logo" id="logo">
+        </a>
+            <h1>PRMSU College of Engineering</h1>
+            <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+        </div>
+        <div class="navbar-right">
+            <a href="index.html" id="home-link">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Instructions +</button>
+                <div class="dropdown-content">
+                    <a href="curricular-offerings.html">Curricular Offerings</a>
+                    <a href="faculty.html">Faculty</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location.href='research.html'">Research +</button>
+                <div class="dropdown-content">
+                    <a href="bsce-research.html">BSCE Research</a>
+                    <a href="bscpe-research.html">BSCpE Research</a>
+                    <a href="bsee-research.html">BSEE Research</a>
+                    <a href="bsme-research.html">BSME Research</a>
+                </div>
+            </div>
+            <a href="Extension.html">Extension</a>
+            <a href="History.html">History</a>
+            <!-- Search Bar Section -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                placeholder="Search..." 
+                class="search-bar" 
+                oninput="showResults(this.value)"
+            >
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .search-container {
+        position: relative;
+        display: flex;
+        flex-grow: 1; /* Allow the search container to use available space */
+        margin: 0; /* Remove any default margin */
+    }
+
+    .search-bar {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        width: 65%; /* Fill the container's width */
+        max-width: 600px; /* Prevents it from being too wide */
+        margin-right: auto; /* Removes space on the right */
+        margin-left: auto; /* Centers the search bar */
+    }
+
+    .search-results {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-height: 150px;
+        overflow-y: auto;
+        width: 100%; /* Matches the search bar's width */
+        z-index: 1000;
+    }
+
+    .search-results p {
+        margin: 0;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    .search-results p:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Mobile layout styles */
+    @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+                position: relative;
+            }
+            .navbar-left {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                position: relative;
+            }
+            .navbar-left #logo {
+                margin-right: 10px;
+            }
+            .navbar-toggle {
+                display: inline-block;
+                cursor: pointer;
+                font-size: 1.8rem;
+                color: #ea7210;
+                background: none;
+                border: none;
+                position: absolute;
+                right: 50px; /* Adjust this value to move it left */
+                top: 50%; /* Vertically center it */
+                transform: translateY(-50%);
+            }
+            .navbar-right {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin-top: 10px;
+            }
+            .navbar.active .navbar-right {
+                display: flex;
+            }
+            .image-section {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-left: 20px; /* Move a little bit to the right */
+        }
+        }
+
+        /* Desktop layout styles */
+        @media (min-width: 769px) {
+            .navbar-toggle {
+                display: none; /* Hide hamburger icon on larger screens */
+            }
+            .navbar-right {
+                display: flex; /* Menu items are visible on larger screens */
+                flex-direction: row;
+                gap: 15px;
+            }
+
+            
+        }
+
+
+        /* Mobile layout styles */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack the text and image sections vertically */
+                align-items: center; /* Center align the sections */
+                height: auto; /* Allow the height to adjust based on content */
+                padding: 10px; /* Add some padding for better spacing */
+            }
+
+            .text-section {
+                margin-right: 0; /* Reset the right margin for stacking */
+                margin-bottom: 20px; /* Add spacing below the text section */
+                text-align: center; /* Center the text for better presentation */
+            }
+
+            .image-section {
+                margin-left: 0; /* Reset the left margin for stacking */
+                width: 100%; /* Adjust the width to fit the mobile screen */
+                max-width: 300px; /* Optional: Limit the maximum width */
+                height: auto; /* Adjust height to match the new width */
+            }
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 15px;
+                position: relative;
+            }
+            .navbar-left {
+                display: flex;
+                align-items: center;
+            }
+
+            .navbar-left h1{
+                font-size: 4vw;
+            }
+
+            .navbar-left #logo {
+                margin-right: 10px;
+            }
+
+            .footer {
+                background-color: #1b1b1b; /* Footer background color */
+                color: white; /* Footer text color */
+                text-align: center; /* Center-align text */
+                padding: 5px 0; /* Add padding */
+                width: 100%; /* Full width footer */
+                margin-top: 50px; /* Pushes the footer to the bottom of the page */
+                position: relative;
+            }
+
+
+
+            /* Hamburger toggle button */
+            .navbar-toggle {
+                display: inline-block;
+                font-size: 1.8rem;
+                color: #ea7210;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* Dropdown menu */
+            .navbar-right {
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 60px; /* Position dropdown below navbar */
+                right: 15px; 
+                width: 200px; 
+                background-color: #fff; /* White background */
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for floating effect */
+                z-index: 1000;
+                animation: dropdown-slide 0.3s ease-out; /* Add slide animation */
+            }
+
+            .navbar.active .navbar-right {
+                display: flex; /* Show dropdown when active */
+            }
+
+            /* Buttons inside the dropdown */
+            .navbar-right a {
+                display: block;
+                text-decoration: none;
+                color: #8c3206;
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #f5f5f5; /* Light gray background */
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            /* Hover effect for dropdown buttons */
+            .navbar-right a:hover {
+                background-color: #df4119cb; /* Consistent orange gradient */
+                color: #fff; /* White text on hover */
+                transform: scale(1.05); /* Slight zoom effect */
+            }
+
+            /* Dropdown animation */
+            @keyframes dropdown-slide {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            /* Uniform button styles for all links */
+            .navbar-right a, .navbar-right .dropbtn {
+                display: block;
+                text-decoration: none;
+                color: #843208;
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #f5f5f5; /* Light gray background */
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            /* Hover effect for all buttons */
+            .navbar-right a:hover, .navbar-right .dropbtn:hover {
+                background-color: #df4119cb; /* Consistent orange gradient */
+                color: #fff; /* White text on hover */
+                transform: scale(1.05); /* Slight zoom effect */
+            }
+        } 
+        
+    </style>
+</head>
+<script>
+    function toggleNavbar() {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+    }
+</script>
+
+
+<script>
+    const searchItems = [
+        { name: "Home", link: "HOME.html" },
+        { name: "Curricular Offerings", link: "curricular-offerings.html" },
+        { name: "Faculty", link: "faculty.html" },
+        { name: "Research", link: "research.html" },
+        { name: "BSCE Research", link: "bsce-research.html" },
+        { name: "BSCpE Research", link: "bscpe-research.html" },
+        { name: "BSEE Research", link: "bsee-research.html" },
+        { name: "BSME Research", link: "bsme-research.html" },
+        { name: "Extension", link: "Extension.html" },
+        { name: "History", link: "History.html" }
+    ];
+
+    function showResults(value) {
+        const results = document.getElementById('search-results');
+        results.innerHTML = '';
+        if (value) {
+            const filteredItems = searchItems.filter(item =>
+                item.name.toLowerCase().includes(value.toLowerCase())
+            );
+            if (filteredItems.length > 0) {
+                filteredItems.forEach(item => {
+                    const p = document.createElement('p');
+                    p.textContent = item.name;
+                    p.onclick = () => {
+                        window.location.href = item.link;
+                    };
+                    results.appendChild(p);
+                });
+                results.style.display = 'block';
+            } else {
+                results.style.display = 'none';
+            }
+        } else {
+            results.style.display = 'none';
+        }
+    }
+</script>
+        </div>
+    </div>
+
+    <!-- Content for Extension Page -->
+    <div class="container">
+        <div class="text-section">
+            <h1>EXTENSION</h1>
+            <p>The College of Engineering Research and Extension Framework...</p>
+            <button class="button">ACCOMPLISHMENS</button>
+            <img src="machine_demo.png" alt="A relevant image for the extension framework" style="width: 100%; height: auto; margin-top: 10px;">
+            <p class="context-text">BSME Department awards and demonstrates the Fish Crushing Machine to Laoag Kaunlaran Association</p>
+            <p style="font-family: Arial, sans-serif; font-size: 20px; color: rgb(255, 166, 0);" > To be updated soon... </p>
+        </div>
+        <div class="image-section">
+            <img src="FRAME.png">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Contact: info@prmsu.edu.ph | Copyright 2024 PRMSU College of Engineering</p>
+    </div>
+
+    <script src="Java-Script.js"></script>
+</body>
+</html>
