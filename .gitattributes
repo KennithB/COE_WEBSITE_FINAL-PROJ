@@ -1,13 +1,16 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-# GitHub Linguist Language Stats Configuration
-# Prioritize JavaScript and CSS over repetitive HTML pages
-*.js linguist-detectable=true
-*.css linguist-detectable=true
-assets/js/** linguist-detectable=true
-assets/css/** linguist-detectable=true
+# ==============================================================================
+# GitHub Linguist Language Stats Override
+# Purpose: Highlight JavaScript as the primary language on the repository
+# ==============================================================================
 
-# Keep index.html detectable, filter redundant pages
+# Force JavaScript to be detected and prioritized
+*.js linguist-detectable=true
+assets/js/** linguist-detectable=true
+
+# Suppress CSS and HTML from language calculation
+*.css linguist-detectable=false
+assets/css/** linguist-detectable=false
 *.html linguist-detectable=false
-index.html linguist-detectable=true
