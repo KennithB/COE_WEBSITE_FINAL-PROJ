@@ -55,18 +55,6 @@ COE_WEBSITE_FINAL-PROJ/
 
 ---
 
-## Architecture and Design
-
-### Object-Oriented JavaScript (`assets/js/app.js`)
-The client-side logic is structured around ES6 OOP principles:
-- `Navigation`: Manages responsive mobile drawer, desktop hover transitions, active page indicators, and outside-click dismissal.
-- `Carousel`: Controls slide transitions, dot indicators, and autoplay with pause-on-hover.
-- `SearchEngine`: Centralized client-side routing and instant search query matching.
-- `ScrollAnimator`: IntersectionObserver-driven scroll reveal animations.
-- `CollegeApp`: Coordinator that boots and binds modules on `DOMContentLoaded`.
-
----
-
 ## Deployment (GitHub Pages)
 
 This project is deployed to GitHub Pages via the `main` branch.
