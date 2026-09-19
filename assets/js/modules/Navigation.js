@@ -23,23 +23,29 @@ class Navigation {
 
         this.toggleBtn.removeAttribute('onclick');
 
-        this.toggleBtn.addEventListener('click', (e) => {
+        this.toggleBtn.onclick = (e) => {
             e.preventDefault();
             e.stopPropagation();
             this.toggleMenu();
-        });
+        };
     }
 
     toggleMenu(forceState) {
         if (!this.toggleBtn || !this.menu) return;
-        const isActive = forceState !== undefined ? forceState : !this.menu.classList.contains('active');
+        const willBeActive = forceState !== undefined ? forceState : !this.menu.classList.contains('active');
         
-        this.toggleBtn.classList.toggle('is-active', isActive);
-        this.toggleBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-        this.menu.classList.toggle('active', isActive);
-
-        if (window.innerWidth <= 860) {
-            document.body.style.overflow = isActive ? 'hidden' : '';
+        if (willBeActive) {
+            this.toggleBtn.classList.add('is-active');
+            this.toggleBtn.setAttribute('aria-expanded', 'true');
+            this.menu.classList.add('active');
+            if (window.innerWidth <= 860) {
+                document.body.style.overflow = 'hidden';
+            }
+        } else {
+            this.toggleBtn.classList.remove('is-active');
+            this.toggleBtn.setAttribute('aria-expanded', 'false');
+            this.menu.classList.remove('active');
+            document.body.style.overflow = '';
         }
     }
 
