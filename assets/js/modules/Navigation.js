@@ -21,7 +21,10 @@ class Navigation {
     bindToggle() {
         if (!this.toggleBtn || !this.menu) return;
 
+        this.toggleBtn.removeAttribute('onclick');
+
         this.toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
             this.toggleMenu();
         });
@@ -34,6 +37,10 @@ class Navigation {
         this.toggleBtn.classList.toggle('is-active', isActive);
         this.toggleBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         this.menu.classList.toggle('active', isActive);
+
+        if (window.innerWidth <= 860) {
+            document.body.style.overflow = isActive ? 'hidden' : '';
+        }
     }
 
     bindDropdowns() {
