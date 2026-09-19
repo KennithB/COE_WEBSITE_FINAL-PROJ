@@ -1,595 +1,188 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research - PRMSU College of Engineering</title>
-    <link rel="stylesheet" href="Css-file.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Times New Roman', Times, serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e0e0e0;
-            color: black;
-        }
-        .navbar {
-            background-color: black;
-            color: white;
-            padding: 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0; /* Stick to the top of the viewport */
-            z-index: 1000; /* Ensure it stays above other elements */
-            background-color: rgb(0, 0, 0); /* Optional: Add a background */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
-        }
-        .navbar-left {
-            display: flex;
-            align-items: center;
-        }
-        .navbar-left img {
-            height: 50px;
-            margin-left: 20px;
-        }
-        .navbar-left h1 {
-            font-size: 20px;
-            margin: 0;
-            padding: 0 20px;
-            color: #FFA500;
-        }
-        .navbar-right {
-            display: flex;
-            align-items: center;
-        }
-        .navbar-right a, .navbar-right .dropbtn {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 16px;
-        }
-        .navbar-right .search-bar {
-            padding: 5px;
-            margin-right: 20px;
-        }
-        .main-content {
-            text-align: center;
-            padding: 20px;
-            margin-top: 60px; /* Adjusted to ensure visibility */
-        }
-        .main-content h1 {
-            color: #cc7000;
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        .main-content p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-        .cards {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            width: 220px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: white;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover {
-            transform: scale(1.2);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        .card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        .card:hover img {
-            transform: scale(1.2);
-        }
-        .card p {
-            background: linear-gradient(45deg, #cc7000, #b35900);
-            color: white;
-            margin: 0;
-            padding: 10px;
-            font-size: 16px;
-        }
-        .section {
-            background-color: #d0d0d0;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-        .section h2 {
-            color: #cc7000;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-        .columns {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
-        .column {
-            flex: 1;
-        }
-        .publications, .documents {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .publication, .document {
-            background: linear-gradient(45deg, #cc7000, #b35900);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 90%; /* Adjusted width to prevent overlap */
-            max-width: 200px; /* Ensure buttons don't exceed a certain width */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.2s;
-            margin: 0 auto; /* Center the buttons */
-        }
-        .publication:hover, .document:hover {
-            transform: scale(1.05);
-        }
-        .footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 14px;
-            margin-top: 40px;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        .tech-innovation {
-            background-color: #c0c0c0;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-        .tech-innovation h2 {
-            color: #cc7000;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-        .tech-cards {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .tech-card {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            width: 300px; /* Increased width */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: white;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .tech-card:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        .tech-card img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        .tech-card:hover img {
-            transform: scale(1.1);
-        }
-        .tech-card p {
-            background: linear-gradient(45deg, #cc7000, #b35900);
-            color: white;
-            margin: 0;
-            padding: 10px;
-            font-size: 16px;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Mobile layout styles */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: center;
-               
-            }
-            .navbar-left {
-                display: flex;
-                width: 100%;
-                position: relative;
-                justify-content: flex-start;
-            }
-            .navbar-left, .navbar-right {
-                text-align: center;
-               
-            }
-
-            .navbar-left h1{
-                font-size: 4vw;
-                padding: 0;
-            }
-            .navbar-left #logo {
-                margin-right: 20px;
-            }
-            
-            .navbar-toggle {
-                display: inline-block;
-                cursor: pointer;
-                font-size: 1.8rem;
-                color: #ea7210;
-                background: none;
-                border: none;
-                position: absolute;
-                right: 50px; /* Adjust this value to move it left */
-                top: 50%; /* Vertically center it */
-                transform: translateY(-50%);
-            }
-            .navbar-right {
-                display: none;
-                flex-direction: column;
-                gap: 10px;
-                width: 100%;
-                background-color: #fff;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                padding: 10px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                margin-top: 10px;
-            }
-            .navbar.active .navbar-right {
-                display: flex;
-            }
-            .main-content {
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px; /* Adjusted to ensure visibility */
-            margin-bottom: 50px;
-            
-            }
-            .main-content{
-                margin-top: 50px;
-            }
-        }
-
-        /* Desktop layout styles */
-        @media (min-width: 769px) {
-            .navbar-toggle {
-                display: none; /* Hide hamburger icon on larger screens */
-            }
-            .navbar-right {
-                display: flex; /* Menu items are visible on larger screens */
-                flex-direction: row;
-                gap: 15px;
-            }
-        }
-
-
-        /* Mobile layout styles */
-        @media (max-width: 768px) {
-            .navbar {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px 15px;
-                position: relative;
-            }
-            .navbar-left {
-                display: flex;
-                align-items: center;
-            }
-            .navbar-left #logo {
-                margin-right: 10px;
-            }
-
-            /* Hamburger toggle button */
-            .navbar-toggle {
-                display: inline-block;
-                font-size: 1.8rem;
-                color: #ea7210;
-                background: none;
-                border: none;
-                cursor: pointer;
-            }
-
-            /* Dropdown menu */
-            .navbar-right {
-                display: none; /* Hidden by default */
-                flex-direction: column;
-                gap: 10px;
-                position: absolute;
-                top: 60px; /* Position dropdown below navbar */
-                right: 15px; 
-                width: 200px; 
-                background-color: #fff; /* White background */
-                border: 1px solid #ddd;
-                border-radius: 8px;
-                padding: 10px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for floating effect */
-                z-index: 1000;
-                animation: dropdown-slide 0.3s ease-out; /* Add slide animation */
-            }
-
-            .navbar.active .navbar-right {
-                display: flex; /* Show dropdown when active */
-            }
-
-            /* Buttons inside the dropdown */
-            .navbar-right a {
-                display: block;
-                text-decoration: none;
-                color: #8c3206;
-                font-size: 16px;
-                padding: 10px;
-                border-radius: 5px;
-                background-color: #f5f5f5; /* Light gray background */
-                text-align: center;
-                font-family: 'Times New Roman', Times, serif;
-                transition: background-color 0.3s ease, transform 0.2s ease;
-            }
-
-            /* Hover effect for dropdown buttons */
-            .navbar-right a:hover {
-                background-color: #df4119cb; /* Consistent orange gradient */
-                color: #fff; /* White text on hover */
-                transform: scale(1.05); /* Slight zoom effect */
-            }
-
-            /* Dropdown animation */
-            @keyframes dropdown-slide {
-                from {
-                    opacity: 0;
-                    transform: translateY(-10px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            /* Uniform button styles for all links */
-            .navbar-right a, .navbar-right .dropbtn {
-                display: block;
-                text-decoration: none;
-                color: #843208;
-                font-size: 16px;
-                padding: 10px;
-                border-radius: 5px;
-                background-color: #f5f5f5; /* Light gray background */
-                text-align: center;
-                font-family: 'Times New Roman', Times, serif;
-                transition: background-color 0.3s ease, transform 0.2s ease;
-            }
-
-            /* Hover effect for all buttons */
-            .navbar-right a:hover, .navbar-right .dropbtn:hover {
-                background-color: #df4119cb; /* Consistent orange gradient */
-                color: #fff; /* White text on hover */
-                transform: scale(1.05); /* Slight zoom effect */
-            }
-        } 
-    </style>
+    <title>Research Portal - PRMSU College of Engineering</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
-<script>
-    function toggleNavbar() {
-        const navbar = document.querySelector('.navbar');
-        navbar.classList.toggle('active');
-    }
-</script>
-
 <body>
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <div class="navbar-left">
-        <a href="index.html">
-            <img src="logo.png" alt="PRMSU Logo" id="logo">
-        </a>
-            <h1>PRMSU College of Engineering</h1>
-            <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
-        </div>
-        <div class="navbar-right">
-            <a href="index.html" id="home-link">Home</a>
-            <div class="dropdown">
-                <button class="dropbtn">Instructions +</button>
-                <div class="dropdown-content">
-                    <a href="curricular-offerings.html">Curricular Offerings</a>
-                    <a href="faculty.html">Faculty</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">Research +</button>
-                <div class="dropdown-content">
-                    <a href="bsce-research.html">BSCE Research</a>
-                    <a href="bscpe-research.html">BSCpE Research</a>
-                    <a href="bsee-research.html">BSEE Research</a>
-                    <a href="bsme-research.html">BSME Research</a>
-                </div>
-            </div>
-            <a href="Extension.html">Extension</a>
-            <a href="History.html">History</a>
-            
-            <!-- Search Bar Section -->
-        <div class="search-container">
-            <input 
-                type="text" 
-                placeholder="Search..." 
-                class="search-bar" 
-                oninput="showResults(this.value)"
-            >
-            <div id="search-results" class="search-results"></div>
-        </div>
-    </div>
-</div>
 
-<style>
-    .search-container {
-        position: relative;
-        display: inline-block;
-    }
-    .search-bar {
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-    .search-results {
-        display: none;
-        position: absolute;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        max-height: 150px;
-        overflow-y: auto;
-        width: 100%;
-        z-index: 1000;
-    }
-    .search-results p {
-        margin: 0;
-        padding: 8px 12px;
-        cursor: pointer;
-    }
-    .search-results p:hover {
-        background-color: #f0f0f0;
-    }
-</style>
-
-<script>
-    const searchItems = [
-        { name: "Home", link: "HOME.html" },
-        { name: "Curricular Offerings", link: "curricular-offerings.html" },
-        { name: "Faculty", link: "faculty.html" },
-        { name: "Research", link: "research.html" },
-        { name: "BSCE Research", link: "bsce-research.html" },
-        { name: "BSCpE Research", link: "bscpe-research.html" },
-        { name: "BSEE Research", link: "bsee-research.html" },
-        { name: "BSME Research", link: "bsme-research.html" },
-        { name: "Extension", link: "Extension.html" },
-        { name: "History", link: "History.html" }
-    ];
-
-    function showResults(value) {
-        const results = document.getElementById('search-results');
-        results.innerHTML = '';
-        if (value) {
-            const filteredItems = searchItems.filter(item =>
-                item.name.toLowerCase().includes(value.toLowerCase())
-            );
-            if (filteredItems.length > 0) {
-                filteredItems.forEach(item => {
-                    const p = document.createElement('p');
-                    p.textContent = item.name;
-                    p.onclick = () => {
-                        window.location.href = item.link;
-                    };
-                    results.appendChild(p);
-                });
-                results.style.display = 'block';
-            } else {
-                results.style.display = 'none';
-            }
-        } else {
-            results.style.display = 'none';
-        }
-    }
-</script>
-        </div>
-    </div>
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1>Research and Development</h1>
-        <p>Explore the various research projects conducted by our students and faculty.</p>
-        <div class="cards">
-            <div class="card" onclick="window.location.href='bsce-research.html'">
-                <img src="https://storage.googleapis.com/a1aa/image/9aEByQ4Wh7YHIVzUAhUMUOleSxvG1LCh5Y3AD627s2Icsn3JA.jpg" alt="Civil Engineering Image" width="200" height="150">
-                <p>Civil Engineering</p>
-            </div>
-            <div class="card" onclick="window.location.href='bscpe-research.html'">
-                <img src="https://storage.googleapis.com/a1aa/image/6xsbPArb0TJHH9K9OgtA0KypykNdRlh2jpRmEf35CjOdsn3JA.jpg" alt="Computer Engineering Image" width="200" height="150">
-                <p>Computer Engineering</p>
-            </div>
-            <div class="card" onclick="window.location.href='bsme-research.html'">
-                <img src="https://storage.googleapis.com/a1aa/image/EPpHst4TNUoNFpjumjj7Oig69iZX0X11ieZNJ9R2GHveYPvTA.jpg" alt="Mechanical Engineering Image" width="200" height="150">
-                <p>Mechanical Engineering</p>
-            </div>
-            <div class="card" onclick="window.location.href='bsee-research.html'">
-                <img src="https://storage.googleapis.com/a1aa/image/0eNM8JYUCKydUiLtEWqCgeeUlSI4PYNIIdXhSyY7Kwg4xe8OB.jpg" alt="Electrical Engineering Image" width="200" height="150">
-                <p>Electrical Engineering</p>
-            </div>
-            <div class="card" onclick="window.location.href='mining-research.html'">
-                <img src="https://storage.googleapis.com/a1aa/image/QrMgrWRs7e2nOaUPC3ydTjpRe0q2t7gjURmbsjFO1ND3YPvTA.jpg" alt="Mining Engineering Image" width="200" height="150">
-                <p>Mining Engineering</p>
-            </div>
-        </div>
-    </div>
-    <div class="section">
-        <div class="grid-container">
-            <div class="column">
-                <h2>Publications</h2>
-                <div class="publications">
-                    <div class="publication" onclick="window.open('https://drive.google.com/file/d/1D0A_tihMA52JyBupAmUC9wPHaWG01ue-/view', '_blank')">
-                        Research Journal 2019
+    <!-- Unified Header & Navigation Bar -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-left">
+                <a href="index.html" class="brand-link">
+                    <img src="assets/images/logos/logo.png" alt="PRMSU Logo" id="logo" class="brand-logo">
+                    <div class="brand-text">
+                        <span class="brand-sub">PRMSU</span>
+                        <span class="brand-main">College of Engineering</span>
                     </div>
-                    <div class="publication">
-                        Research Journal 2020
+                </a>
+            </div>
+
+            <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleNavbar()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <div class="navbar-menu" id="navbar-menu">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link" data-page="index.html">Home</a>
+                    
+                    <div class="dropdown">
+                        <button class="dropbtn" aria-haspopup="true" aria-expanded="false">
+                            <span>Instruction</span>
+                            <svg class="chevron-icon" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="curricular-offerings.html" data-page="curricular-offerings.html">Curricular Offerings</a>
+                            <a href="faculty.html" data-page="faculty.html">Faculty Directory</a>
+                        </div>
                     </div>
+
+                    <div class="dropdown">
+                        <button class="dropbtn" aria-haspopup="true" aria-expanded="false" onclick="if(window.innerWidth > 860) window.location.href='research.html'">
+                            <span>Research</span>
+                            <svg class="chevron-icon" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="research.html" data-page="research.html">Overview</a>
+                            <a href="bsce-research.html" data-page="bsce-research.html">BSCE Research</a>
+                            <a href="bscpe-research.html" data-page="bscpe-research.html">BSCpE Research</a>
+                            <a href="bsee-research.html" data-page="bsee-research.html">BSEE Research</a>
+                            <a href="bsme-research.html" data-page="bsme-research.html">BSME Research</a>
+                        </div>
+                    </div>
+
+                    <a href="Extension.html" class="nav-link" data-page="Extension.html">Extension</a>
+                    <a href="History.html" class="nav-link" data-page="History.html">History</a>
+                </div>
+
+                <div class="search-container">
+                    <div class="search-box">
+                        <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                        </svg>
+                        <input type="text" placeholder="Search portal..." class="search-bar" autocomplete="off" aria-label="Search portal" oninput="showResults(this.value)">
+                    </div>
+                    <div id="search-results" class="search-results"></div>
                 </div>
             </div>
-            <div class="column">
-                <h2>Documents</h2>
-                <div class="documents">
-                    <div class="document" onclick="window.open('https://drive.google.com/file/d/1JRwwACpxtTxdf_2pDQyGw2Tqvsy2JGxE/view', '_blank')">
-                        PRMSU Intellectual Property Rights Manual
-                    </div>
-                    <div class="document" onclick="window.open('https://drive.google.com/file/d/12zq2nwBMpu8rilk5SE04L45-8bUkynxA/view', '_blank')">
-                        Research Manual of Operations 2022
-                    </div>
-                    <div class="document" onclick="window.open('https://drive.google.com/file/d/1qu8FZ21f_pSlViZx4RZJdNiqcrjJkkmF/view', '_blank')">
-                        RMTU Research Manual 2017
-                    </div>
+        </nav>
+    </header>
+
+    <main class="page-wrapper">
+        <section class="section-container">
+            <h1 class="section-title">Research & <span>Development</span></h1>
+            <p style="text-align: center; color: var(--text-muted); max-width: 700px; margin: -1.5rem auto 3rem;">Explore university publications, research manuals, and student engineering innovations across all four specialized disciplines.</p>
+
+            <div class="three-columns" style="margin-bottom: 3.5rem;">
+                <div class="column-card animate-on-scroll" onclick="window.location.href='bsce-research.html'" style="cursor: pointer;">
+                    <img src="assets/images/logos/CE logo.png" alt="BSCE" style="width: 72px; height: 72px; object-fit: contain; margin-bottom: 1rem;">
+                    <h3>Civil Engineering</h3>
+                    <p>Structures, water resources, environmental, and transportation engineering projects.</p>
+                    <span class="paper-btn" style="margin-top: 1rem;">Explore BSCE</span>
+                </div>
+
+                <div class="column-card animate-on-scroll" onclick="window.location.href='bscpe-research.html'" style="cursor: pointer;">
+                    <img src="assets/images/logos/CPE logo.png" alt="BSCpE" style="width: 72px; height: 72px; object-fit: contain; margin-bottom: 1rem;">
+                    <h3>Computer Engineering</h3>
+                    <p>IoT, artificial intelligence, embedded systems, and computer vision systems.</p>
+                    <span class="paper-btn" style="margin-top: 1rem;">Explore BSCpE</span>
+                </div>
+
+                <div class="column-card animate-on-scroll" onclick="window.location.href='bsee-research.html'" style="cursor: pointer;">
+                    <img src="assets/images/logos/EE logo.png" alt="BSEE" style="width: 72px; height: 72px; object-fit: contain; margin-bottom: 1rem;">
+                    <h3>Electrical Engineering</h3>
+                    <p>Power electronics, solar grid integration, transmission, and power quality analysis.</p>
+                    <span class="paper-btn" style="margin-top: 1rem;">Explore BSEE</span>
+                </div>
+
+                <div class="column-card animate-on-scroll" onclick="window.location.href='bsme-research.html'" style="cursor: pointer;">
+                    <img src="assets/images/logos/ME logo.png" alt="BSME" style="width: 72px; height: 72px; object-fit: contain; margin-bottom: 1rem;">
+                    <h3>Mechanical Engineering</h3>
+                    <p>Thermodynamics, mechanical prototype fabrication, and agricultural machinery.</p>
+                    <span class="paper-btn" style="margin-top: 1rem;">Explore BSME</span>
                 </div>
             </div>
+
+            <h2 class="section-title">Institutional <span>Research Publications</span></h2>
+            <div class="research-paper-list animate-on-scroll">
+                <a href="https://drive.google.com/file/d/1D0A_tihMA52JyBupAmUC9wPHaWG01ue-/view" target="_blank" rel="noopener" class="paper-card">
+                    <div class="paper-info">
+                        <span class="research-badge">JOURNAL</span>
+                        <h3 class="paper-title">PRMSU College of Engineering Research Journal (2019)</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">Faculty and graduate student peer-reviewed engineering research compendium.</p>
+                    </div>
+                    <span class="paper-btn">Open Journal</span>
+                </a>
+                <a href="https://drive.google.com/file/d/1JRwwACpxtTxdf_2pDQyGw2Tqvsy2JGxE/view" target="_blank" rel="noopener" class="paper-card">
+                    <div class="paper-info">
+                        <span class="research-badge">GUIDELINES</span>
+                        <h3 class="paper-title">PRMSU Intellectual Property Rights Manual</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">Official institutional framework for patents, copyrights, and technology transfer.</p>
+                    </div>
+                    <span class="paper-btn">Open Manual</span>
+                </a>
+                <a href="https://drive.google.com/file/d/12zq2nwBMpu8rilk5SE04L45-8bUkynxA/view" target="_blank" rel="noopener" class="paper-card">
+                    <div class="paper-info">
+                        <span class="research-badge">MANUAL</span>
+                        <h3 class="paper-title">Research Manual of Operations 2022</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">Procedures and standards governing student and faculty research conduct.</p>
+                    </div>
+                    <span class="paper-btn">Open Manual</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <div class="footer-brand">
+                    <img src="assets/images/logos/logo.png" alt="PRMSU Logo" class="footer-logo">
+                    <h2>PRMSU <span>College of Engineering</span></h2>
+                </div>
+                <p class="footer-tagline">Excellence in engineering education, innovation, and community development across Zambales.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Campus Location</h3>
+                <p>Zone 6 Baytan,<br>Palanginan, Iba,<br>Zambales, Philippines 2201</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="curricular-offerings.html">Curricular Offerings</a></li>
+                    <li><a href="faculty.html">Faculty Directory</a></li>
+                    <li><a href="research.html">Research Portal</a></li>
+                    <li><a href="Extension.html">Extension Programs</a></li>
+                    <li><a href="History.html">College History</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Connect With Us</h3>
+                <p><a href="https://www.facebook.com/prmsucoe" target="_blank" rel="noopener">Official Facebook Page</a></p>
+                <p><a href="https://www.facebook.com/THECOEFFICIENTSPRMSU" target="_blank" rel="noopener">The COEfficients Publication</a></p>
+                <p class="footer-contact"><strong>Email:</strong> online.coe@prmsu.edu.ph</p>
+                <p class="footer-contact"><strong>Phone:</strong> (+63) 919 069 9177</p>
+            </div>
         </div>
-    </div>
-    <div class="tech-innovation">
-        <h2>Technological Innovations</h2>
-        <div class="tech-cards">
-            <div class="tech-card">
-                <img src="E-Trap.png" alt="Tech Innovation 1">
-            </div>
-            <div class="tech-card">
-                <img src="Water Level.png" alt="Tech Innovation 2">
-            </div>
-            <div class="tech-card">
-                <img src="OpenCV.png" alt="Tech Innovation 3">
-            </div>
+        <div class="footer-bottom">
+            <p>PRMSU College of Engineering &copy; 2024. All rights reserved.</p>
         </div>
-    </div>
-    <div class="footer">
-        <p>Contact: info@prmsu.edu.ph | Copyright 2024 PRMSU College of Engineering</p>
-    </div>
-    <script src="Java-Script.js"></script>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
 </body>
 </html>

@@ -1,2 +1,13 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# GitHub Linguist Language Stats Configuration
+# Prioritize JavaScript and CSS over repetitive HTML pages
+*.js linguist-detectable=true
+*.css linguist-detectable=true
+assets/js/** linguist-detectable=true
+assets/css/** linguist-detectable=true
+
+# Keep index.html detectable, filter redundant pages
+*.html linguist-detectable=false
+index.html linguist-detectable=true
