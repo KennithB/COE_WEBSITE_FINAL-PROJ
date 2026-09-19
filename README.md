@@ -2,12 +2,12 @@
 
 Official website for the **President Ramon Magsaysay State University (PRMSU) College of Engineering**, featuring academic programs, faculty directory, student & faculty research publications, and community extensions.
 
-🌐 **Live Website (GitHub Pages):**  
+**Live Website (GitHub Pages):**  
 [https://kennithb.github.io/COE_WEBSITE_FINAL-PROJ/](https://kennithb.github.io/COE_WEBSITE_FINAL-PROJ/)
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 This website serves as an informational and resource portal for the College of Engineering at PRMSU, Iba, Zambales.
 
@@ -19,7 +19,7 @@ This website serves as an informational and resource portal for the College of E
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 COE_WEBSITE_FINAL-PROJ/
@@ -30,7 +30,7 @@ COE_WEBSITE_FINAL-PROJ/
 ├── faculty.html                  # Administration & faculty profiles
 ├── curricular-offerings.html     # Degree curriculum guides
 ├── research.html                 # Research portal
-├── extension.html                # Extension programs & outreach
+├── Extension.html                # Extension programs & outreach
 ├── bsce-research.html            # Civil Engineering research
 ├── bscpe-research.html           # Computer Engineering research
 ├── bsee-research.html            # Electrical Engineering research
@@ -39,7 +39,13 @@ COE_WEBSITE_FINAL-PROJ/
     ├── css/
     │   └── style.css             # Unified responsive stylesheet
     ├── js/
-    │   └── app.js               # Centralized OOP JavaScript architecture
+    │   ├── modules/              # Modular OOP ES6 classes
+    │   │   ├── Navigation.js
+    │   │   ├── Carousel.js
+    │   │   ├── SearchEngine.js
+    │   │   ├── ScrollAnimator.js
+    │   │   └── FacultyData.js
+    │   └── app.js               # Centralized OOP JavaScript runtime
     └── images/
         ├── logos/                # University and department logos
         ├── slides/               # Carousel slides (slide1.png - slide8.png)
@@ -49,26 +55,26 @@ COE_WEBSITE_FINAL-PROJ/
 
 ---
 
-## ⚙️ Architecture & Design
+## Architecture and Design
 
 ### Object-Oriented JavaScript (`assets/js/app.js`)
 The client-side logic is structured around ES6 OOP principles:
-- `Navigation`: Manages responsive mobile toggling, desktop hover transitions, and outside-click dismissal.
-- `Carousel`: Controls slide transitions, dot indicators, and boundaries.
+- `Navigation`: Manages responsive mobile drawer, desktop hover transitions, active page indicators, and outside-click dismissal.
+- `Carousel`: Controls slide transitions, dot indicators, and autoplay with pause-on-hover.
 - `SearchEngine`: Centralized client-side routing and instant search query matching.
 - `ScrollAnimator`: IntersectionObserver-driven scroll reveal animations.
 - `CollegeApp`: Coordinator that boots and binds modules on `DOMContentLoaded`.
 
 ---
 
-## 🚀 Deployment (GitHub Pages)
+## Deployment (GitHub Pages)
 
 This project is deployed to GitHub Pages via the `main` branch.
 
 To push changes:
 ```bash
 git add .
-git commit -m "Refactor folder structure to assets/ and implement OOP JavaScript"
+git commit -m "Update portal content"
 git push origin main
 ```
 Access the deployed site at:  
@@ -76,6 +82,6 @@ Access the deployed site at:
 
 ---
 
-## 📄 License & Rights
+## License and Rights
 
-© 2024 PRMSU College of Engineering. All rights reserved.
+(c) 2024 PRMSU College of Engineering. All rights reserved.
